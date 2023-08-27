@@ -16,4 +16,10 @@ Don't forget to enable scaling for HiDPI screens in Firefox (if you need that),
 by going to `about:config` and searching for `layout.css.devPixelsPerPx`.
 I set the value to `1.5`.
 
+For permanently enabling Redshift, create the following file:
+
+```shell
+~/.config/systemd/user/default.target.wants/redshift.service
+```
+
 Have fun!

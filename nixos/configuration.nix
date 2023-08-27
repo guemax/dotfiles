@@ -71,6 +71,13 @@
   services.xserver.enable = true;
   services.xserver.dpi = 180;
 
+  location.latitude = 48.1;
+  location.longitude = 11.6;
+  
+  services.redshift.enable = true;
+  services.redshift.temperature.day = 5000;
+  services.redshift.temperature.night = 2500;
+  
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
