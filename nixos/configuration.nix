@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <nixos-hardware/dell/inspiron/7405>
       ./hardware-configuration.nix
       <home-manager/nixos>
     ];
@@ -159,7 +160,7 @@
   };
 
   programs.ssh.startAgent = true;
-
+  #hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
     firefox
