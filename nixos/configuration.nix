@@ -83,7 +83,7 @@
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
 
-  services.xserver.windowManager.xmonad.config = builtins.readFile xmonad/xmonad.hs;
+  services.xserver.windowManager.xmonad.config = builtins.readFile ../xmonad/xmonad.hs;
 
   boot.supportedFilesystems = [ "ntfs" ];
   services.devmon.enable = true;
