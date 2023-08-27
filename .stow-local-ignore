@@ -1,0 +1,10 @@
+nixos/*
+xmonad/*
+
+README.md
+\.git
+\.gitignore
+
+# Emacs backup/autosave files
+.+~
+\#.*\#
