@@ -157,13 +157,10 @@
     isNormalUser = true;
     description = "Max Günther";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   home-manager.users.max = { pkgs, ... }: {
     home.stateVersion = "23.05";
-    home.packages = with pkgs; [];
-
     home.file.".ssh/allowed_signers".text =
       "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdnTBXWsqeMc28vnbWp8sNhrAeKfveb4Ly4aO7nrVK9 git";
 
@@ -224,13 +221,6 @@
   services.emacs.defaultEditor = true;
 
   programs.ssh.startAgent = true;
-  
-  
-  ######################################################################
-  ###                                                                ###
-  ###                     --- Config Version ---                     ###
-  ###                                                                ###
-  ######################################################################
 
   system.stateVersion = "23.05";
 }
