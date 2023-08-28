@@ -121,7 +121,7 @@
   ######################################################################
 
   location.latitude = 48.1;
-  location.longitude = 11.6;  # Munich, DE
+  location.longitude = 11.6;  # Munich, Germany
   
   services.redshift.enable = true;
   services.redshift.temperature.day = 5000;
