@@ -196,8 +196,13 @@
     jetbrains-mono
     alacritty
     keepassxc
+    localsend  # Open Source alternative to Air Drop.
+    flameshot  # Screenshot software.
+    inetutils
+    nomacs  # Image viewer with basic image manipulation.
+    feh  # Simply an image viewer.
     vlc
-    mc
+    mc  # Midnight Commander: Text based file manager for Unix.
     inkscape
     darktable
     gimp
