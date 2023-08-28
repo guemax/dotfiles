@@ -170,14 +170,26 @@
   #hardware.bluetooth.enable = true;
 
   environment.systemPackages = with pkgs; [
+    # Browsers
     firefox
-    emacs
-    keepassxc
+    tor-browser-bundle-bin
+    # OS utilities
     alacritty
-    git
-    inkscape
+    jetbrains-mono
+    keepassxc
+    vlc
     mc
+    # Drawing and image manipulation
+    inkscape
+    gimp
+    darktable
+    # School
+    anki
+    # Programming
+    texlive.combined.scheme-medium
+    emacs
     gh
+    git
   ];
 
   services.emacs.enable = true;
