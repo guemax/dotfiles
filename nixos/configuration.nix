@@ -1,58 +1,66 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      <nixos-hardware/dell/inspiron/7405>
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
+  imports = [
+    <nixos-hardware/dell/inspiron/7405>
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
-  # Bootloader.
+  
+  ######################################################################
+  ###                                                                ###
+  ###                       --- Bootloader ---                       ###
+  ###                                                                ###
+  ######################################################################
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Setup keyfile
+  boot.supportedFilesystems = [ "ntfs" ];
+  services.devmon.enable = true;  # Automatic device mounting.
+  
+  
+  ######################################################################
+  ###                                                                ###
+  ###                    --- LUKS Encryption ---                     ###
+  ###                                                                ###
+  ######################################################################
+  
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
 
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef".device = "/dev/disk/by-uuid/3822d100-9ab0-4fd3-a51b-4eba9b4e69ef";
-  boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef"
+    .device = "/dev/disk/by-uuid/3822d100-9ab0-4fd3-a51b-4eba9b4e69ef";
+  boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef"
+    .keyFile = "/crypto_keyfile.bin";
+  
 
-  networking.hostName = "nixos"; # Define your hostname.
+  ######################################################################
+  ###                                                                ###
+  ###                       --- Networking ---                       ###
+  ###                                                                ###
+  ######################################################################
+
+  networking.hostName = "nixos";
   networking.wireless.enable = true;
-  # networking.wireless = {
-  #   enable = true;
-  #   userControlled.enable = true;
-  #   networks = {
-  #     "FRITZ!Box 7490" = {
-  #       pskRaw = "12f358b548da48c32c1cbec22aaf08a04d0c0dd79593f803d8fce119f3f47d23";
-  #     };
-  #   };
-  # };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
   networking.networkmanager.unmanaged = [
     "*" "except:type:wwan" "except:type:gsm"
   ];
+  
 
-  # Set your time zone.
+  ######################################################################
+  ###                                                                ###
+  ###                      --- Localisation ---                      ###
+  ###                                                                ###
+  ######################################################################
+
   time.timeZone = "Europe/Berlin";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -64,92 +72,103 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+  
 
-  console.font =
-    "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+  ######################################################################
+  ###                                                                ###
+  ###                     --- X11 and XMonad ---                     ###
+  ###                                                                ###
+  ######################################################################
 
   services.xserver.enable = true;
-  services.xserver.dpi = 180;
+  services.xserver.videoDrivers = [ "intel" ];
 
-  location.latitude = 48.1;
-  location.longitude = 11.6;
-  
-  services.redshift.enable = true;
-  services.redshift.temperature.day = 5000;
-  services.redshift.temperature.night = 2500;
-  
+  console.keyMap = "de";
+  services.xserver = {
+    layout = "de";
+    xkbVariant = "";
+  };
+
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
   };
-  
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.windowManager.xmonad.config =
+    builtins.readFile ../xmonad/xmonad.hs;
+
+
+  ######################################################################
+  ###                                                                ###
+  ###                      --- HiDPI Screen ---                      ###
+  ###                                                                ###
+  ######################################################################
+
+  console.font =
+    "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+  services.xserver.dpi = 180;
 
   environment.variables = {
     GDK_SCALE = "1.5";
     GDK_DPI_SCALE = "0.5";
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
+  
 
-  services.xserver.windowManager.xmonad.config = builtins.readFile ../xmonad/xmonad.hs;
+  ######################################################################
+  ###                                                                ###
+  ###                      --- Night Light ---                       ###
+  ###                                                                ###
+  ######################################################################
 
-  boot.supportedFilesystems = [ "ntfs" ];
-  services.devmon.enable = true;
+  location.latitude = 48.1;
+  location.longitude = 11.6;  # Munich, DE
+  
+  services.redshift.enable = true;
+  services.redshift.temperature.day = 5000;
+  services.redshift.temperature.night = 2500;
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
-  };
 
-  # Configure console keymap
-  console.keyMap = "de";
+  ######################################################################
+  ###                                                                ###
+  ###                         --- Sound ---                          ###
+  ###                                                                ###
+  ######################################################################
 
-  # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    jack.enable = true;
   };
+  
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  ######################################################################
+  ###                                                                ###
+  ###                     --- User Accounts ---                      ###
+  ###                                                                ###
+  ######################################################################
+
   users.users.max = {
     isNormalUser = true;
     description = "Max Günther";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    ];
+    packages = with pkgs; [];
   };
 
-#   home-manager.programs.ssh.startAgent = true;
-
-#   xdg.autostart.enable = true;
-#   services.gnome.gnome-keyring.enable = true;
-#   environment.sessionVariables = {
-#     SSH_AUTH_SOCK = "/run/usr/1000/keyring/ssh";
-#   };
-
   home-manager.users.max = { pkgs, ... }: {
-    home.packages = with pkgs; [
-    ];
     home.stateVersion = "23.05";
-#     home.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+    home.packages = with pkgs; [];
+
     home.file.".ssh/allowed_signers".text =
       "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdnTBXWsqeMc28vnbWp8sNhrAeKfveb4Ly4aO7nrVK9 git";
 
     programs.git = {
       enable = true;
-
       userName = "guemax";
       userEmail = "code-mg@mailbox.org";
 
@@ -162,64 +181,51 @@
         gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
       };
     };
-#    services.ssh-agent.enable = true;
-#     programs.ssh.startAgent = true;
   };
 
-  programs.ssh.startAgent = true;
-  #hardware.bluetooth.enable = true;
+  
+  ######################################################################
+  ###                                                                ###
+  ###                    --- System Packages ---                     ###
+  ###                                                                ###
+  ######################################################################
 
   environment.systemPackages = with pkgs; [
-    # Browsers
-    firefox
     tor-browser-bundle-bin
-    # OS utilities
-    alacritty
+    firefox
     jetbrains-mono
+    alacritty
     keepassxc
     vlc
     mc
-    # Drawing and image manipulation
     inkscape
-    gimp
     darktable
-    # School
+    gimp
     anki
-    # Programming
     texlive.combined.scheme-medium
     emacs
-    gh
     git
+    gh
   ];
+
+
+  ######################################################################
+  ###                                                                ###
+  ###                     --- Miscellaneous ---                      ###
+  ###                                                                ###
+  ######################################################################
 
   services.emacs.enable = true;
   services.emacs.defaultEditor = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.ssh.startAgent = true;
+  
+  
+  ######################################################################
+  ###                                                                ###
+  ###                     --- Config Version ---                     ###
+  ###                                                                ###
+  ######################################################################
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-#   services.opensshd.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
-
+  system.stateVersion = "23.05";
 }
