@@ -166,9 +166,7 @@
 
   home-manager.users.max = { pkgs, ... }: {
     home.stateVersion = "23.05";
-    home.file.".ssh/allowed_signers".text =
-      "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdnTBXWsqeMc28vnbWp8sNhrAeKfveb4Ly4aO7nrVK9 git";
-
+    
     programs.git = {
       enable = true;
       userName = "guemax";
@@ -176,15 +174,27 @@
 
       extraConfig = {
         init.defaultBranch = "main";
-        commit.gpgsign = true;
-        gpg.format = "ssh";
-        user.signingkey =
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdnTBXWsqeMc28vnbWp8sNhrAeKfveb4Ly4aO7nrVK9 git";
-        gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
+        commit.gpgSign = true;
+        user.signingkey = "85916548E34D20A0!";
       };
     };
   };
+  
 
+  ######################################################################
+  ###                                                                ###
+  ###                         --- GnuPG ---                          ###
+  ###                                                                ###
+  ######################################################################
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+  };
+
+  environment.variables = {
+    GPG_TTY= "$(tty)";
+  };
   
   ######################################################################
   ###                                                                ###
