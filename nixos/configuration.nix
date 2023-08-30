@@ -178,27 +178,23 @@
 
       extraConfig = {
         init.defaultBranch = "main";
-        commit.gpgSign = true;
+        commit.gpgsign = true;
         user.signingkey = "85916548E34D20A0!";
       };
     };
-  };
-  
 
-  ######################################################################
-  ###                                                                ###
-  ###                         --- GnuPG ---                          ###
-  ###                                                                ###
-  ######################################################################
-
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "gtk2";
+    services.gpg-agent = {
+      enable = true;
+      enableBashIntegration = true;
+      defaultCacheTtl = 1800;  # 30 minutes.
+      extraConfig = ''
+        allow-emacs-pinentry
+        allow-loopback-pinentry
+      '';
+      pinentryFlavor = "curses";  # Pinentry TUI.
+    };
   };
 
-  environment.variables = {
-    GPG_TTY= "$(tty)";
-  };
   
   ######################################################################
   ###                                                                ###
@@ -213,8 +209,7 @@
     brightnessctl
     alacritty
     keepassxc
-    # pinentry  # Required by gnupg for creating keys.
-    # gnupg
+    gnupg
     localsend  # Open Source alternative to Air Drop.
     flameshot  # Screenshot software.
     inetutils
