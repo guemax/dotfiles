@@ -95,12 +95,16 @@
     xkbVariant = "";
   };
 
+  fonts.fontDir.enable = true;
+
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
   };
   services.xserver.windowManager.xmonad.config =
-    builtins.readFile ../xmonad/xmonad.hs;
+    builtins.readFile ~/.xmonad/xmonad.hs;
+
+  services.xserver.displayManager.defaultSession = "none+xmonad";
 
 
   ######################################################################
@@ -189,7 +193,7 @@
 
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryFlavor = "gtk2";
   };
 
   environment.variables = {
@@ -206,8 +210,11 @@
     tor-browser-bundle-bin
     firefox
     jetbrains-mono
+    brightnessctl
     alacritty
     keepassxc
+    # pinentry  # Required by gnupg for creating keys.
+    # gnupg
     localsend  # Open Source alternative to Air Drop.
     flameshot  # Screenshot software.
     inetutils
@@ -217,12 +224,17 @@
     mc  # Midnight Commander: Text based file manager for Unix.
     inkscape
     darktable
+    mypaint
     gimp
     anki
-    texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     emacs
     git
+    tea  # Official Gitea CLI.
     gh
+    xorg.xev  # Utility for testing whether special keys of keyboard are
+              # recognized by X11.
+    stow
   ];
 
 
