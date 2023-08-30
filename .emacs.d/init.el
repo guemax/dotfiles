@@ -296,12 +296,12 @@
 
 ;; Prevent Magit from preceding when my KeePassXC database is
 ;; locked. (Git would be unable to sign the commit and fail.)
-(setq magit-display-buffer-function
-      (lambda (buffer)
-	(when (git-signingkey-locked-p)
-	  (error "Make sure to unlock your KeePassXC database first."))
-	(magit-display-buffer-traditional buffer)))
+;; (setq magit-display-buffer-function
+;;       (lambda (buffer)
+;; 	(when (git-signingkey-locked-p)
+;; 	  (error "Make sure to unlock your KeePassXC database first."))
+;; 	(magit-display-buffer-traditional buffer)))
 
-(defun git-signingkey-locked-p ()
-  (unless (string-match "git" (shell-command-to-string "ssh-add -l"))
-    t))
+;; (defun git-signingkey-locked-p ()
+;;   (unless (string-match "git" (shell-command-to-string "ssh-add -l"))
+;;     t))
