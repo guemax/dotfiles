@@ -1,2 +1,7 @@
-# Emacs backup files
+# Emacs backup files.
 *~
+
+# XMonad compilation.
+.xmonad/build-x86_64-linux/
+.xmonad/xmonad-x86_64-linux
+.xmonad/xmonad.errors
