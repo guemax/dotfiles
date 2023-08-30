@@ -50,6 +50,12 @@
   networking.networkmanager.unmanaged = [
     "*" "except:type:wwan" "except:type:gsm"
   ];
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 53317 ];  # 53317 required for localsend.
+    allowedUDPPorts = [ 53317 ];
+  };
   
 
   ######################################################################
