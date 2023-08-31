@@ -19,7 +19,7 @@ printf "Creating symlinks... "
 ln -s ./nixos/configuration.nix /etc/nixos/
 echo "done."
 
-prinft "Stowing config files... "
+printf "Stowing config files... "
 stow .
 echo "done."
 
