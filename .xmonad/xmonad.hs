@@ -3,6 +3,7 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
 
 myConfig = def
   { modMask = myModMask
@@ -33,6 +34,6 @@ myNormalBorderColor = "#303540"
 myFocusedBorderColor = "#565f73"
 
 -- myLayoutHook = spacingRaw False (Border 10 0 10 0) True (Border 0 10 0 10) True $ Tall 1 (3/100) (1/2) ||| Full
-myLayoutHook = smartSpacingWithEdge 10 $ Tall 1 (3/100) (1/2) ||| Full
+myLayoutHook = smartSpacingWithEdge 10 $ smartBorders $ Tall 1 (3/100) (1/2) ||| Full
 
-main = xmonad $ ewmhFullscreen $ ewmh $ xmobarProp $ myConfig
+main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
