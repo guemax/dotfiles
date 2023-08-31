@@ -1,3 +1,9 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                --- Package Archives/Manager ---                ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/") t)
@@ -9,6 +15,19 @@
 (eval-when-compile
   (require 'use-package))
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                     --- User Interface ---                     ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Disable *fancy* stuff like menubar, toolbar or even scrollbar.
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(set-scroll-bar-mode nil)
+
+;;; Gruber darker theme by Alexey Kutepov a.k.a. rexim.
 (use-package gruber-darker-theme
   :ensure t
   :config
@@ -21,29 +40,13 @@
   (progn
     (set-face-attribute 'default nil :height 120)))
 
+;;; Hightlight matching parenthesis.
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (column-number-mode)
 (global-display-line-numbers-mode)
-
-(load "server")
-(unless (server-running-p) (server-start))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;                                                                ;;;
-;;;                     --- User Interface ---                     ;;;
-;;;                                                                ;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(menu-bar-mode -1)
-(set-scroll-bar-mode nil)
-(tool-bar-mode -1)
-
-;; Disable graphical prompts. (Use minibuffer instead.)
-(setq use-dialog-box nil)
-
-(setq debug-on-error t)
-(setq visible-bell t)
-
-(show-paren-mode t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -52,37 +55,44 @@
 ;;;                                                                ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq default-directory "~/Documents")
-
 (setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file) (load custom-file))
 
+(setq default-directory "~/Documents")
+
+(setq debug-on-error t)
+(setq visible-bell t)
 (setq confirm-kill-emacs 'y-or-n-p)
 
-;; Enable recent files history.
-(recentf-mode 1)
-
-;; Enable Minibuffer completion.
-(ido-mode t)
+;; Disable graphical prompts. (Use minibuffer instead.)
+(setq use-dialog-box nil)
 
 ;; Save input of minibuffer prompts.
 (setq history-length 25)
 (savehist-mode 1)
 
-;; Revert buffers when the underlying file has changed.
 (global-auto-revert-mode 1)
 
-;; Save previous cursor position in recently used file.
 (save-place-mode 1)
+(recentf-mode 1)
+
+;;; Display possible keyboard shortcuts for prefix key.
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
-;;;                        --- Packages ---                        ;;;
+;;;                       --- Completion ---                       ;;;
 ;;;                                                                ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Enable completion in buffers.
+;; For minibuffers.
+(ido-mode t)
+
+;;; For buffers.
 (use-package ivy
   :commands ivy-mode
   :config
@@ -107,18 +117,32 @@
   (setq company-minimum-prefix-length 1
 	company-idle-delay 0.0))
 
-;;; Hightlight matching parenthesis.
-(use-package rainbow-delimiters
+;;; For languages.
+(use-package lsp-mode
   :ensure t
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (
+	 (python-mode . lsp)
+	 (c++-mode . lsp)
+	 (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
-;;; Display possible keyboard shortcuts for prefix key.
-(use-package which-key
+(use-package lsp-ivy
   :ensure t
-  :config
-  (which-key-mode))
+  :commands lsp-ivy-workspace-symbol)
 
-;;; Enable Projectile
+(use-package lsp-treemacs
+  :ensure t
+  :commands lsp-treemacs-error-list)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                       --- Projectile ---                       ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package projectile
   :ensure t
   :init
@@ -140,7 +164,13 @@
 	   "__pycache__")
 	 projectile-globally-ignored-directories)))
 
-;;; Enable Dashboard.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                       --- Dashboard ---                        ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package dashboard
   :ensure t
   :config
@@ -170,12 +200,19 @@
 	  "Truth can be only found in one place: the code."))
   (dashboard-setup-startup-hook))
 
-;;; Enable Nix mode.
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                     --- Language Modes ---                     ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Nix.
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")
 
-;;; Enable Rust mode.
+;;; Rust.
 (use-package rust-mode
   :ensure t
   :config
@@ -189,15 +226,7 @@
   (setq compilation-scroll-output t)
   (add-hook 'rust-mode-hook 'cargo-minor-mode))
 
-;;; Enable TeX support.
-(use-package pdf-tools
-  :ensure t
-  :config
-  (setq-default pdf-view-display-size 'fit-page)
-  (setq pdf-annot-activate-created-annotations t)
-  (pdf-tools-install :no-query)
-  (require 'pdf-occur))
-
+;;; TeX.
 (use-package tex
   :ensure auctex
   :config
@@ -209,35 +238,32 @@
   :hook
   (TeX-after-TeX-LaTeX-command-finished . TeX-revert-document-buffer))
 
-;;; Enable language servers for completion.
-(use-package lsp-mode
+(use-package pdf-tools
   :ensure t
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook (
-	 (python-mode . lsp)
-	 (c++-mode . lsp)
-	 (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :config
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-annot-activate-created-annotations t)
+  (pdf-tools-install :no-query)
+  (require 'pdf-occur))
 
-(use-package lsp-ivy
-  :ensure t
-  :commands lsp-ivy-workspace-symbol)
 
-(use-package lsp-treemacs
-  :ensure t
-  :commands lsp-treemacs-error-list)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                          --- Git ---                           ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Enable magit for git functionality inside Emacs.
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
 
 (require 'git-commit)
 
+;;; Pinentry for entering GPG key password inside Emacs.
 (use-package pinentry
   :ensure t
   :init (pinentry-start))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
@@ -296,3 +322,13 @@
 	     
 	     (make-string comment-width char)
 	     "\n" "\n"))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                      --- Emacs Server ---                      ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(load "server")
+(unless (server-running-p) (server-start))
