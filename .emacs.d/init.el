@@ -46,7 +46,10 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (column-number-mode)
-(global-display-line-numbers-mode)
+(dolist (mode '(prog-mode
+		text-mode
+		conf-mode))
+  (add-hook mode (display-line-numbers-mode 1)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
