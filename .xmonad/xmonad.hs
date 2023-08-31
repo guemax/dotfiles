@@ -18,4 +18,4 @@ myConfig = def
   , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%-")
   ]
 
-main = getDirectories >>= launch myConfig
+main = xmonad $ myConfig
