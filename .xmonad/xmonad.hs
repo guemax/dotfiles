@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Hooks.EwmhDesktops
 
 myConfig = def
   { modMask = mod4Mask -- Use Super instead of Alt
@@ -18,4 +19,4 @@ myConfig = def
   , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%-")
   ]
 
-main = xmonad $ myConfig
+main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
