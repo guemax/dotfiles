@@ -102,7 +102,7 @@
     enableContribAndExtras = true;
   };
   services.xserver.windowManager.xmonad.config =
-    builtins.readFile ~/.xmonad/xmonad.hs;
+    builtins.readFile /home/max/.xmonad/xmonad.hs;
 
   services.xserver.displayManager.defaultSession = "none+xmonad";
 
