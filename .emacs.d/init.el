@@ -85,6 +85,12 @@
   :config
   (which-key-mode))
 
+;;; Mode for entering Emacs commands without modifier keys, similar to
+;;; Vim's separation of command mode and insert mode.
+(use-package god-mode
+  :ensure t
+  :config
+  (global-set-key (kbd "<escape>") #'god-mode-all))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
