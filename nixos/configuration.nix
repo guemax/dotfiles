@@ -212,6 +212,7 @@
     keepassxc
     localsend  # Open Source alternative to Air Drop.
     firefox
+    xmobar
     gnupg
     anki
     vlc
