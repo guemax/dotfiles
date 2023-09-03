@@ -30,8 +30,8 @@ myTerminal = "alacritty"
 ----------------------------------------------------------------------
 
 myBorderWidth = 5
-myNormalBorderColor = "#52494e"
-myFocusedBorderColor = "#c73c3f"
+myNormalBorderColor = "#96a6c8"
+myFocusedBorderColor = "#ffdd33"
 
 
 ----------------------------------------------------------------------
@@ -60,7 +60,7 @@ myLayoutHook = avoidStruts
 
 myAdditionalKeysP =
   [ -- Miscellaneous
-    ("M-q", restart "xmonad" True)
+    ("M-q", spawn "pkill xmobar; xmonad --restart")
   , ("M-f", spawn "firefox")
     -- Audio
   , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+")
@@ -80,31 +80,27 @@ myAdditionalKeysP =
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppSep             = magenta " • "
+    { ppSep             = lowWhite " "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
-    , ppHidden          = white . wrap " " ""
+    , ppCurrent         = yellow . wrap " " "" -- . xmobarBorder "Bottom" "#ffdd33" 2
+    , ppHidden          = blue . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-    , ppOrder           = \[ws, l, _, wins] -> [ws, l, wins]
+    , ppOrder           = \[ws, _, _, wins] -> [ws, wins]
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
+    formatFocused   = yellow . wrap " [" "]" . ppWindow
+    formatUnfocused = blue   . wrap " [" "]" . ppWindow
 
-    -- | Windows should have *some* title, which should not not exceed a
-    -- sane length.
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
 
-    blue, lowWhite, magenta, red, white, yellow :: String -> String
-    magenta  = xmobarColor "#ff79c6" ""
-    blue     = xmobarColor "#bd93f9" ""
-    white    = xmobarColor "#f8f8f2" ""
-    yellow   = xmobarColor "#f1fa8c" ""
-    red      = xmobarColor "#ff5555" ""
-    lowWhite = xmobarColor "#bbbbbb" ""
+    blue, lowWhite, red, yellow :: String -> String
+    blue     = xmobarColor "#96a6c8" ""
+    yellow   = xmobarColor "#ffdd33" ""
+    red      = xmobarColor "#f43841" ""
+    lowWhite = xmobarColor "#52494e" ""
 
 
 ----------------------------------------------------------------------
@@ -120,7 +116,7 @@ main = xmonad
        $ def
        { modMask = myModMask
        , terminal = myTerminal
-       , XMonad.borderWidth = myBorderWidth
+       , borderWidth = myBorderWidth
        , normalBorderColor  = myNormalBorderColor
        , focusedBorderColor = myFocusedBorderColor
        , layoutHook = myLayoutHook

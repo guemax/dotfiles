@@ -209,9 +209,12 @@
 
     tor-browser-bundle-bin
     brightnessctl
+    # TODO: Use font.font for specifying fonts.
+    font-awesome
     keepassxc
     localsend  # Open Source alternative to Air Drop.
     firefox
+    iosevka
     xmobar
     gnupg
     anki
