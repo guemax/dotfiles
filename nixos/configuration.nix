@@ -203,33 +203,59 @@
   ######################################################################
 
   environment.systemPackages = with pkgs; [
+    #######################
+    ## OS related stuff. ##
+    #######################
+
     tor-browser-bundle-bin
-    firefox
-    jetbrains-mono
     brightnessctl
-    alacritty
     keepassxc
-    gnupg
     localsend  # Open Source alternative to Air Drop.
-    flameshot  # Screenshot software.
-    inetutils
-    nomacs  # Image viewer with basic image manipulation.
-    feh  # Simply an image viewer.
+    firefox
+    gnupg
+    anki
     vlc
     mc  # Midnight Commander: Text based file manager for Unix.
-    inkscape
+
+    
+    ##########################
+    ## Image related stuff. ##
+    ##########################
+
+    flameshot  # Screenshot software.
     darktable
+    inkscape
     mypaint
+    nomacs  # Image viewer with basic image manipulation.
     gimp
-    anki
+    feh  # Simply an image viewer.
+    
+    
+    #######################
+    ## Programmer stuff. ##
+    #######################
+
     texlive.combined.scheme-full
+    jetbrains-mono
+    alacritty
+    inetutils
+    xorg.xev  # Print contents of X events.
     emacs
+    stow
     git
     tea  # Official Gitea CLI.
     gh
-    xorg.xev  # Utility for testing whether special keys of keyboard are
-              # recognized by X11.
-    stow
+
+
+    ###################
+    ## H4ck3r stuff. ##
+    ###################
+
+    neofetch
+    cmatrix
+    cowsay
+    lolcat
+    htop
   ];
 
 
