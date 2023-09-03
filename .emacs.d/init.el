@@ -107,6 +107,12 @@
       (indent-region (line-beginning-position) (line-end-position)))
     (setq deactivate-mark deactivate)))
 
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C->" . mc/mark-next-like-this)
+	 ("C-<" . mc/mark-previous-like-this)
+	 ("C-c C-<" . mc/mark-all-like-this)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
