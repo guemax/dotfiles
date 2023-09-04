@@ -95,6 +95,8 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 (save-place-mode 1)
 (recentf-mode 1)
 
+(put 'upcase-region 'disabled nil)
+
 ;;; Display possible keyboard shortcuts for prefix key.
 (use-package which-key
   :ensure t
