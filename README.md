@@ -3,6 +3,8 @@
 Dotfiles&mdash;A place for combining all my GNU/Linux configuration
 files.
 
+![Screenshot of my desktop.](./resources/screenshot-1.png)
+
 ## Setup
 
 Setting up my dotfiles is pretty much straightforward, as I have
