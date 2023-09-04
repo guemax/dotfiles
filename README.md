@@ -26,7 +26,7 @@ SOFTWARE.
 Dotfiles&mdash;A place for combining all my GNU/Linux configuration
 files.
 
-![Screenshot of my desktop.](./resources/screenshot-1.png)
+![Screenshot of my desktop.](./resources/screenshot-2.png)
 
 ## Setup
 
