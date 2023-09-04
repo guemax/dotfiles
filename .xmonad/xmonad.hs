@@ -48,6 +48,16 @@ import XMonad.Util.WorkspaceCompare
 myModMask = mod4Mask -- Use Super instead of Alt.
 myTerminal = "alacritty"
 
+myWorkspaces = [ "1: www"
+               , "2: emacs"
+               , "3: term"
+               , "4: docs"
+               , "5: man"
+               , "6: pass"
+               , "7: vid"
+               , "8: mus"
+               , "9: else"
+               ]
 
 ----------------------------------------------------------------------
 --                                                                  --
@@ -146,6 +156,7 @@ main = xmonad
        $ def
        { modMask = myModMask
        , terminal = myTerminal
+       , workspaces = myWorkspaces
        , borderWidth = myBorderWidth
        , normalBorderColor  = myNormalBorderColor
        , focusedBorderColor = myFocusedBorderColor
