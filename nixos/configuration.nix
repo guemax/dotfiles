@@ -118,8 +118,6 @@ SOFTWARE.
     xkbVariant = "";
   };
 
-  fonts.fontDir.enable = true;
-
   services.xserver.windowManager.xmonad = {
     enable = true;
     enableContribAndExtras = true;
@@ -217,6 +215,19 @@ SOFTWARE.
       pinentryFlavor = "curses";  # Pinentry TUI.
     };
   };
+  
+
+  ######################################################################
+  ###                                                                ###
+  ###                         --- Fonts ---                          ###
+  ###                                                                ###
+  ######################################################################
+
+  fonts.fonts = with pkgs; [
+    font-awesome
+    iosevka
+    jetbrains-mono
+  ];
 
   
   ######################################################################
@@ -232,12 +243,9 @@ SOFTWARE.
 
     tor-browser-bundle-bin
     brightnessctl
-    # TODO: Use font.font for specifying fonts.
-    font-awesome
     keepassxc
     localsend  # Open Source alternative to Air Drop.
     firefox
-    iosevka
     xmobar
     gnupg
     anki
@@ -263,7 +271,6 @@ SOFTWARE.
     #######################
 
     texlive.combined.scheme-full
-    jetbrains-mono
     alacritty
     inetutils
     xorg.xev  # Print contents of X events.

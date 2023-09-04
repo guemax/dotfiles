@@ -136,6 +136,7 @@ main = xmonad
        . ewmhFullscreen
        . ewmh
        . withEasySB (statusBarProp "xmobar" (pure myXmobarPP)) defToggleStrutsKey
+       $ docks
        $ def
        { modMask = myModMask
        , terminal = myTerminal

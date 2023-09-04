@@ -56,12 +56,13 @@
   :config
   (load-theme 'gruber-darker t))
 
-(if (member "JetBrains Mono" (font-family-list))
+(if (member "Iosevka" (font-family-list))
     (progn
-      (add-to-list 'initial-frame-alist '(font . "JetBrains Mono-14"))
-      (add-to-list 'default-frame-alist '(font . "JetBrains Mono-14")))
+      (add-to-list 'initial-frame-alist '(font . "Iosevka-13"))
+      (add-to-list 'default-frame-alist '(font . "Iosevka-13")))
   (progn
     (set-face-attribute 'default nil :height 120)))
+
 
 ;;; Hightlight matching parenthesis.
 (use-package rainbow-delimiters
@@ -90,6 +91,7 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
