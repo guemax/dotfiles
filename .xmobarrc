@@ -10,6 +10,7 @@ Config { overrideRedirect = False
                         , "--high"  , "red"
                         , "-t", "<fc=#ffdd33></fc> <total>%"
                         ] 10
+                    , Run Battery [ "-t", "<fc=#ffdd33></fc> <left>% <acstatus>" ] 60
                     , Run Alsa "default" "Master"
                         [ "-t", "<fc=#ffdd33><fn=1></fn></fc> <volumestatus>"
                         , "--suffix"  , "True"
@@ -25,5 +26,5 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = " <fc=#ffdd33></fc> %XMonadLog% }{ %locks% %alsa:default:Master%  <fc=#52494e>|</fc>  %wlp0s20f3wi%  <fc=#52494e>|</fc>  %cpu%  <fc=#52494e>|</fc>  %memory%  <fc=#52494e>|</fc>  %date% "
+       , template = " <fc=#ffdd33></fc> %XMonadLog% }{ %locks% %alsa:default:Master%  <fc=#52494e>|</fc>  %battery%  <fc=#52494e>|</fc>  %wlp0s20f3wi%  <fc=#52494e>|</fc>  %cpu%  <fc=#52494e>|</fc>  %memory%  <fc=#52494e>|</fc>  %date% "
        }
