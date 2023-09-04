@@ -118,7 +118,7 @@ myXmobarPP :: PP
 myXmobarPP = def
     { ppSep             = lowWhite " "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = yellow . wrap " " "" -- . xmobarBorder "Bottom" "#ffdd33" 2
+    , ppCurrent         = yellow . wrap " " "" . xmobarBorder "Bottom" "#ffdd33" 3
     , ppHidden          = blue . wrap " " ""
     , ppHiddenNoWindows = shorten' "" 0   -- Do not display these ws.
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
