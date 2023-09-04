@@ -1,6 +1,7 @@
 nixos/*
 xmonad/*
 
+LICENSE
 README.md
 \.git
 \.gitignore
