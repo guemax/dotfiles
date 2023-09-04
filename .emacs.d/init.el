@@ -249,10 +249,9 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   :ensure t
   :config
   (setq dashboard-projects-backend 'projectile)
-  (setq dashboard-items '((recents . 5)
-			  (bookmarks . 5)
-			  (projects . 5)
-			  (agenda . 5)))
+  (setq dashboard-items '((recents . 3)
+			  (projects . 3)
+			  (agenda . 3)))
   (setq dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
   (setq dashboard-startup-banner 1)
   (setq dashboard-footer-messages
