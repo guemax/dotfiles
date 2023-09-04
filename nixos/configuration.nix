@@ -246,6 +246,7 @@ SOFTWARE.
     keepassxc
     localsend  # Open Source alternative to Air Drop.
     firefox
+    xdotool  # For having clickable workspaces in Xmobar.
     xmobar
     gnupg
     anki

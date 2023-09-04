@@ -4,7 +4,7 @@ Config { overrideRedirect = False
        , bgColor  = "#282828"
        , fgColor  = "#96a6c8"
        , position = TopSize L 100 45
-       , commands = [ Run XMonadLog
+       , commands = [ Run UnsafeXMonadLog
                     , Run Locks
                     , Run Cpu
                         [ "-L", "3"
@@ -30,5 +30,5 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = " <fc=#ffdd33></fc> %XMonadLog% }{ %locks%  %cpu%  <fc=#52494e>|</fc>  %memory%  <fc=#52494e>|</fc>  %alsa:default:Master%  <fc=#52494e>|</fc>  %battery%  <fc=#52494e>|</fc>  %wlp0s20f3wi%  <fc=#52494e>|</fc>  %date% "
+       , template = " <fc=#ffdd33></fc> %UnsafeXMonadLog% }{ %locks%  %cpu%  <fc=#52494e>|</fc>  %memory%  <fc=#52494e>|</fc>  %alsa:default:Master%  <fc=#52494e>|</fc>  %battery%  <fc=#52494e>|</fc>  %wlp0s20f3wi%  <fc=#52494e>|</fc>  %date% "
        }

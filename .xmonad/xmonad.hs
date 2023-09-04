@@ -35,6 +35,9 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
+import XMonad.Util.ClickableWorkspaces
+import XMonad.Util.WorkspaceCompare
+
 
 ----------------------------------------------------------------------
 --                                                                  --
@@ -125,6 +128,8 @@ myXmobarPP = def
     red      = xmobarColor "#f43841" ""
     lowWhite = xmobarColor "#52494e" ""
 
+mySort = getSortByXineramaRule
+
 
 ----------------------------------------------------------------------
 --                                                                  --
@@ -134,8 +139,9 @@ myXmobarPP = def
 
 main = xmonad
        . ewmhFullscreen
+       . setEwmhWorkspaceSort mySort
        . ewmh
-       . withEasySB (statusBarProp "xmobar" (pure myXmobarPP)) defToggleStrutsKey
+       . withEasySB (statusBarProp "xmobar" (clickablePP myXmobarPP)) defToggleStrutsKey
        $ docks
        $ def
        { modMask = myModMask
