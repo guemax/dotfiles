@@ -223,6 +223,8 @@ SOFTWARE.
   ###                                                                ###
   ######################################################################
 
+  fonts.fontDir.enable = true;
+  
   fonts.fonts = with pkgs; [
     font-awesome
     iosevka
