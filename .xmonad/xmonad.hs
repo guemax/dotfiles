@@ -22,20 +22,22 @@ SOFTWARE.
 -}
 
 import XMonad
+
+-- Util.
 import XMonad.Util.EZConfig (additionalKeysP)
-import XMonad.Hooks.EwmhDesktops
-
-import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders
-import XMonad.Hooks.ManageDocks
-
+import XMonad.Util.ClickableWorkspaces
 import XMonad.Util.Loggers
 
+-- Layout.
+import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
+
+-- Hooks.
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
-
-import XMonad.Util.ClickableWorkspaces
 
 
 ----------------------------------------------------------------------
@@ -57,6 +59,7 @@ myWorkspaces = [ "1: www"
                , "8: mus"
                , "9: else"
                ]
+
 
 ----------------------------------------------------------------------
 --                                                                  --
