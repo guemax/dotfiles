@@ -44,6 +44,9 @@ printf "Stowing config files... "
 stow .
 echo "done."
 
+printf "Applying X defaults... "
+xrdb -merge ~/.Xdefaults
+
 printf "Building NixOS... "
 nixos-rebuild switch
 echo "done."
