@@ -251,6 +251,7 @@ SOFTWARE.
     xdotool  # For having clickable workspaces in Xmobar.
     xmobar
     gnupg
+    rofi
     anki
     vlc
     mc  # Midnight Commander: Text based file manager for Unix.
