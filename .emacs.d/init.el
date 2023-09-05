@@ -319,6 +319,16 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   (pdf-tools-install :no-query)
   (require 'pdf-occur))
 
+;;; YAML.
+(use-package yaml-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  (add-hook 'yaml-mode-hook
+	    '(lambda ()
+               (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
