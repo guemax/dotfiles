@@ -260,6 +260,7 @@ SOFTWARE.
     ## Image related stuff. ##
     ##########################
 
+    obs-studio
     flameshot  # Screenshot software.
     darktable
     inkscape
