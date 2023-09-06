@@ -247,64 +247,93 @@ SOFTWARE.
   ######################################################################
 
   environment.systemPackages = with pkgs; [
-    #######################
-    ## OS related stuff. ##
-    #######################
-
+    ##############
+    ## Browser. ##
+    ##############
     tor-browser-bundle-bin
-    brightnessctl
-    keepassxc
-    localsend  # Open Source alternative to Air Drop.
     firefox
-    xdotool  # For having clickable workspaces in Xmobar.
-    xmobar
-    gnupg
-    rofi
+
+    ###################
+    ## OS utilities. ##
+    ###################
+    localsend  # Open Source alternative to Air Drop.
     anki
     vlc
     mc  # Midnight Commander: Text based file manager for Unix.
 
-    
-    ##########################
-    ## Image related stuff. ##
-    ##########################
+    ##################################
+    ## Secret management utilities. ##
+    ##################################
+    keepassxc
+    gnupg
 
-    obs-studio
-    flameshot  # Screenshot software.
+    ##############################
+    ## XMonad/Xmobar utilities. ##
+    ##############################
+    xdotool  # For having clickable workspaces in Xmobar.
+    xmobar
+    rofi
+    
+    #########################
+    ## SysAdmin utilities. ##
+    #########################
+    brightnessctl
+    inetutils
+    xorg.xev  # Print contents of X events.
+    htop
+
+    ####################
+    ## Image viewers. ##
+    ####################
+    nomacs  # With basic image manipulation.
+    feh
+
+    ####################
+    ## Image editors. ##
+    ####################
     darktable
     inkscape
     mypaint
-    nomacs  # Image viewer with basic image manipulation.
     gimp
-    feh  # Simply an image viewer.
-    
-    
-    #######################
-    ## Programmer stuff. ##
-    #######################
 
+    ################################
+    ## Screen recording software. ##
+    ################################
+    obs-studio
+    flameshot  # Screenshot software.
+
+    ############################
+    ## Programming languages. ##
+    ############################
     texlive.combined.scheme-full
-    alacritty
-    inetutils
-    xorg.xev  # Print contents of X events.
     python311
+
+    ##########################
+    ## Terminal and editor. ##
+    ##########################
+    alacritty
     emacs
-    tokei
-    stow
+
+    ######################
+    ## Version control. ##
+    ######################
     git
     tea  # Official Gitea CLI.
     gh
 
-
+    ##################################
+    ## Other programming utilities. ##
+    ##################################
+    tokei
+    stow
+    
     ###################
     ## H4ck3r stuff. ##
     ###################
-
     neofetch
     cmatrix
     cowsay
     lolcat
-    htop
   ];
 
 
