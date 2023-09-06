@@ -379,6 +379,11 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   (interactive "MTitle for header comment: ")
   (insert-header-comment title 3 ?#))
 
+(defun insert-c-header-comment (title)
+  "Insert a  H U G E  C comment for standout headers."
+  (interactive "MTitle for header comment: ")
+  (insert-header-comment title 2 ?/))
+
 (defun insert-header-comment (title border-width char)
   "Insert a  H U G E  comment for standout headers."
 
