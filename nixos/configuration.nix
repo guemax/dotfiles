@@ -287,7 +287,9 @@ SOFTWARE.
     alacritty
     inetutils
     xorg.xev  # Print contents of X events.
+    python311
     emacs
+    tokei
     stow
     git
     tea  # Official Gitea CLI.
