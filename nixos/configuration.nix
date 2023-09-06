@@ -155,8 +155,16 @@ SOFTWARE.
   location.longitude = 11.6;  # Munich, Germany
   
   services.redshift.enable = true;
-  services.redshift.temperature.day = 5000;
-  services.redshift.temperature.night = 2500;
+  services.redshift = {
+    temperature = {
+      day = 5000;
+      night = 2500;
+    };
+    brightness = {
+      day = "0.9";
+      night = "0.6";
+    };
+  };
 
 
   ######################################################################
