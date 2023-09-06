@@ -27,6 +27,7 @@ import XMonad
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.ClickableWorkspaces
 import XMonad.Util.Loggers
+import XMonad.Util.SpawnOnce
 
 -- Layout.
 import XMonad.Layout.Spacing
@@ -101,6 +102,7 @@ myAdditionalKeysP =
     ("M-q", spawn "pkill xmobar; xmonad --restart")
   , ("M-f", spawn "firefox")
   , ("M-p", spawn "rofi -show window")
+  , ("M-e", spawn "emacs")
     -- Audio
   , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+")
   , ("<XF86AudioLowerVolume>",  spawn "amixer set Master 5%-")
@@ -142,6 +144,18 @@ myXmobarPP = def
     lowWhite = xmobarColor "#52494e" ""
 
 
+----------------------------------------------------------------------
+--                                                                  --
+--                       --- Startup Hook ---                       --
+--                                                                  --
+----------------------------------------------------------------------
+
+myStartupHook :: X ()
+myStartupHook = do
+  spawnOnOnce "1: www"   "firefox"
+  spawnOnOnce "2: emacs" "emacs"
+  spawnOnOnce "3: term"  "alacritty"
+  spawnOnOnce "6: pass"  "keepassxc"
 
 ----------------------------------------------------------------------
 --                                                                  --
@@ -162,5 +176,7 @@ main = xmonad
        , normalBorderColor  = myNormalBorderColor
        , focusedBorderColor = myFocusedBorderColor
        , layoutHook = myLayoutHook
+       , manageHook = manageSpawn <+> manageHook def
+       , startupHook = myStartupHook
        }
        `additionalKeysP` myAdditionalKeysP
