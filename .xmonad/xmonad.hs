@@ -24,19 +24,19 @@ SOFTWARE.
 import XMonad
 
 -- Util.
-import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.ClickableWorkspaces
+import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.Loggers
 import XMonad.Util.SpawnOnce
 
 -- Layout.
-import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 
 -- Hooks.
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
