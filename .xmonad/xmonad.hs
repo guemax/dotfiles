@@ -157,6 +157,7 @@ myStartupHook = do
   spawnOnOnce "3: term"  "alacritty"
   spawnOnOnce "6: pass"  "keepassxc"
 
+
 ----------------------------------------------------------------------
 --                                                                  --
 --                      --- Main Function ---                       --
