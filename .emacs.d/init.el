@@ -490,3 +490,18 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 
 (load "server")
 (unless (server-running-p) (server-start))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
+;;;                       --- Mode Line ---                        ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package dim
+  :ensure t)
+
+(dim-minor-names '((company-mode "")
+		   (company-box-mode "")
+		   (which-key-mode "")
+		   (ivy-mode "")))
