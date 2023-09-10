@@ -363,6 +363,58 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
+;;;                        --- Org Mode ---                        ;;;
+;;;                                                                ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
+
+(setq org-confirm-babel-evaluate nil)
+
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+(use-package org
+  :ensure t
+  :config
+  (setq org-hide-emphasis-markers t)
+  (setq org-agenda-files '("~/org/Birthdays.org"
+                           "~/org/Tasks.org"))
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+          (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)"
+                    "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)"
+                    "|" "COMPLETED(c)" "CANC(c@)")))
+  (setq org-tag-alist
+        '(("@home" . ?H)
+          ("@school" . ?S)
+          ("agenda" . ?A)
+          ("planning" . ?p)
+          ("publish" . ?p)
+          ("batch" . ?b)
+          ("note" . ?n)
+          ("idea" . ?i))))
+
+(use-package org-bullets
+  :ensure t
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+  
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;                                                                ;;;
 ;;;                 --- Custom ELisp functions ---                 ;;;
 ;;;                                                                ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
