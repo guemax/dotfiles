@@ -256,6 +256,7 @@ SOFTWARE.
     ###################
     ## OS utilities. ##
     ###################
+    borgbackup
     localsend  # Open Source alternative to Air Drop.
     anki
     vlc
