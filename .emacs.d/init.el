@@ -328,6 +328,9 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 	    '(lambda ()
                (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
 
+;;; PHP
+(use-package php-mode
+  :ensure t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
