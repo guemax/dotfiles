@@ -23,7 +23,7 @@
 #+TITLE: Dotfiles
 #+OPTIONS: toc:nil
 
-Dotfiles--A place for combining all my GNU/Linux configuration
+Dotfiles---A place for combining all my GNU/Linux configuration
 files.
 
 #+CAPTION: Screenshot of Emacs and XMobar with my settings.
