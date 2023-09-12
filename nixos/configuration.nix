@@ -2,26 +2,27 @@
 
 Copyright (c) 2023 guemax
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -29,6 +30,11 @@ SOFTWARE.
     ./hardware-configuration.nix
     <home-manager/nixos>
   ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem
+    (lib.getName pkg) [
+      "epson-inkjet-printer-workforce-840-series"
+    ];
 
   
   ######################################################################
@@ -127,6 +133,9 @@ SOFTWARE.
 
   services.xserver.displayManager.defaultSession = "none+xmonad";
 
+  # Touchpad support.
+  services.xserver.libinput.enable = true;
+
 
   ######################################################################
   ###                                                                ###
@@ -185,6 +194,22 @@ SOFTWARE.
   };
   
 
+  ######################################################################
+  ###                                                                ###
+  ###                          --- CUPS ---                          ###
+  ###                                                                ###
+  ######################################################################
+
+  services.printing.enable = true;
+  services.printing.drivers = with pkgs; [
+    epson-escpr
+    # Custom Nix package written by my father, which uses the
+    # proprietary Epson driver for the Workforce 840 to enable double
+    # sided printing as well.
+    (callPackage /etc/nixos/epson-workforce-840.nix {})
+  ];
+
+  
   ######################################################################
   ###                                                                ###
   ###                     --- User Accounts ---                      ###
@@ -257,6 +282,7 @@ SOFTWARE.
     ## OS utilities. ##
     ###################
     thunderbird
+    libreoffice
     borgbackup
     localsend  # Open Source alternative to Air Drop.
     anki
