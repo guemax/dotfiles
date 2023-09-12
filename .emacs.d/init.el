@@ -411,6 +411,9 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;;; Exporting org mode files to markdown.
+(require 'ox-md)
   
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
