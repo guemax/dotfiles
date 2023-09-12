@@ -26,7 +26,6 @@
 Dotfiles---A place for combining all my GNU/Linux configuration
 files.
 
-#+CAPTION: Screenshot of Emacs and XMobar with my settings.
 [[./resources/screenshot-2.png]]
 
 * Setup
