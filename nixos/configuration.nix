@@ -256,6 +256,7 @@ SOFTWARE.
     ###################
     ## OS utilities. ##
     ###################
+    thunderbird
     borgbackup
     localsend  # Open Source alternative to Air Drop.
     anki
@@ -308,6 +309,10 @@ SOFTWARE.
     ############################
     texlive.combined.scheme-full
     python311
+    rustfmt
+    rustc
+    cargo
+    gcc
 
     ##########################
     ## Terminal and editor. ##
