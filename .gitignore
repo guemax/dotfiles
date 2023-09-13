@@ -1,6 +1,8 @@
 # Emacs backup files.
 *~
 
+./nixos/additional-hardware-configuration.nix
+
 # XMonad compilation.
 .xmonad/build-x86_64-linux/
 .xmonad/xmonad-x86_64-linux

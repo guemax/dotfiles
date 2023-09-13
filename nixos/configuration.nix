@@ -10,7 +10,7 @@ distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
 
-The above copyright notice and this permission notice shall be
+The above copyright notice and this permission notice shall.n be
 included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
@@ -28,6 +28,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   imports = [
     <nixos-hardware/dell/inspiron/7405>
     ./hardware-configuration.nix
+    ./additional-hardware-configuration.nix
     <home-manager/nixos>
   ];
 
@@ -48,22 +49,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   boot.supportedFilesystems = [ "ntfs" ];
   services.devmon.enable = true;  # Automatic device mounting.
-  
-  
-  ######################################################################
-  ###                                                                ###
-  ###                    --- LUKS Encryption ---                     ###
-  ###                                                                ###
-  ######################################################################
-  
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef"
-    .device = "/dev/disk/by-uuid/3822d100-9ab0-4fd3-a51b-4eba9b4e69ef";
-  boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef"
-    .keyFile = "/crypto_keyfile.bin";
   
 
   ######################################################################
