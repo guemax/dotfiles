@@ -102,7 +102,9 @@ myAdditionalKeysP =
   [ -- Miscellaneous
     ("M-q", spawn "pkill xmobar; xmonad --restart")
   , ("M-f", spawn "firefox")
-  , ("M-p", spawn "rofi -show window")
+  , ("M-w", spawn "rofi -show window")
+  , ("M-p", spawn "rofi -show drun")
+  , ("M-l", spawn "rofi -show run")
   , ("M-e", spawn "emacs")
     -- Audio
   , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+")
