@@ -58,12 +58,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   ######################################################################
 
   networking.hostName = "nixos";
-  networking.wireless.enable = true;
-
   networking.networkmanager.enable = true;
-  networking.networkmanager.unmanaged = [
-    "*" "except:type:wwan" "except:type:gsm"
-  ];
 
   networking.firewall = {
     enable = true;
