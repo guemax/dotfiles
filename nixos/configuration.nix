@@ -266,6 +266,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     libreoffice
     borgbackup
     localsend  # Open Source alternative to Air Drop.
+    mupdf
     anki
     vlc
     mc  # Midnight Commander: Text based file manager for Unix.
