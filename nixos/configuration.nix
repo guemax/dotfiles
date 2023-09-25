@@ -241,6 +241,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   fonts.fonts = with pkgs; [
     font-awesome
     iosevka
+    nerdfonts
     jetbrains-mono
   ];
 
