@@ -10,11 +10,11 @@ Config { overrideRedirect = False
                         [ "-L", "3"
                         , "-H", "50"
                         , "--high"  , "red"
-                        , "-t", "<fc=#ffdd33></fc> <total>%"
+                        , "-t", "<fc=#ffdd33> </fc> <total>%"
                         ] 10
-                    , Run Memory ["-t", "<fc=#ffdd33></fc> <usedratio>%"] 10
+                    , Run Memory ["-t", "<fc=#ffdd33> </fc> <usedratio>%"] 10
                     , Run Alsa "default" "Master"
-                        [ "-t", "<fc=#ffdd33><fn=1></fn></fc> <volumestatus>"
+                        [ "-t", "<fc=#ffdd33><fn=1> </fn></fc> <volumestatus>"
                         , "--suffix"  , "True"
                         , "--"
                         , "--on", ""
@@ -23,10 +23,10 @@ Config { overrideRedirect = False
                                   , "--"
                                   , "-o", "<fc=#ffdd33> </fc> <left>%"
                                   , "-O", "<fc=#ffdd33> </fc> Charging"
-                                  , "-i", "<fc=#ffdd33></fc> Full"
+                                  , "-i", "<fc=#ffdd33> </fc> Full"
                                   ] 60
-                    , Run Wireless "wlp0s20f3" [ "-t", "<fc=#ffdd33><fn=1></fn></fc> <essid> (<quality>)" ] 10
-                    , Run Date "<fc=#ffdd33></fc> %H:%M" "date" 10
+                    , Run Wireless "wlp0s20f3" [ "-t", "<fc=#ffdd33><fn=1> </fn></fc> <essid> (<quality>)" ] 10
+                    , Run Date "<fc=#ffdd33> </fc> %H:%M" "date" 10
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
