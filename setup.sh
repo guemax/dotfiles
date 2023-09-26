@@ -39,7 +39,7 @@ nix-channel --update
 echo "done."
 
 printf "Creating symlinks... "
-ln -s ./nixos/configuration.nix /etc/nixos/
+ln -s ./nixos/dell-inspiron-14-7000-configuration.nix /etc/nixos/
 echo "done."
 
 printf "Stowing config files... "
