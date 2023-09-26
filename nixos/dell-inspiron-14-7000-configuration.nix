@@ -10,7 +10,7 @@ distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
 
-The above copyright notice and this permission notice shall be
+The above copyright notice and this permission notice shall.n be
 included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
@@ -22,15 +22,37 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-{ config, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  ######################################################################
-  ###                                                                ###
-  ###                    --- LUKS Encryption ---                     ###
-  ###                                                                ###
-  ######################################################################
-  
+  imports = [
+    # Hardware configuration.
+    <nixos-hardware/dell/inspiron/7405>
+    ./hardware-configuration.nix
+    # Modules.
+    ./modules/bootloader.nix
+    ./modules/networking.nix
+    ./modules/localisation.nix
+    ./modules/system-packages.nix
+    ./modules/users.nix
+    ./modules/hdpi.nix
+    ./modules/fonts.nix
+    # Services.
+    ./services/xserver.nix
+    ./services/redshift.nix
+    ./services/pipewire.nix
+    ./services/printing.nix
+    ./services/emacs.nix
+    # Programs.
+    ./programs/ssh.nix
+    # Home Manager.
+    <home-manager/nixos>
+    ./modules/home.nix
+  ];
+
+  #####################
+  ## LUKS Encryption ##
+  #####################
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
@@ -39,4 +61,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     .device = "/dev/disk/by-uuid/3822d100-9ab0-4fd3-a51b-4eba9b4e69ef";
   boot.initrd.luks.devices."luks-3822d100-9ab0-4fd3-a51b-4eba9b4e69ef"
     .keyFile = "/crypto_keyfile.bin";
+
+  ###################
+  ## State Version ##
+  ###################
+  system.stateVersion = "23.05";
 }
