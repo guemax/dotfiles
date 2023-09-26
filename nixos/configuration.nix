@@ -49,7 +49,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   boot.supportedFilesystems = [ "ntfs" ];
   services.devmon.enable = true;  # Automatic device mounting.
-  
+
 
   ######################################################################
   ###                                                                ###
@@ -204,6 +204,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   home-manager.users.max = { pkgs, ... }: {
     home.stateVersion = "23.05";
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.phinger-cursors;
+      name = "Phinger Cursors";
+      size = 48;
+    };
     
     programs.git = {
       enable = true;
@@ -262,12 +269,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ###################
     ## OS utilities. ##
     ###################
+    phinger-cursors
+    lxappearance
     thunderbird
     libreoffice
     borgbackup
     localsend  # Open Source alternative to Air Drop.
     mupdf
     anki
+    mons  # Managing multiple monitors.
     vlc
     mc  # Midnight Commander: Text based file manager for Unix.
 
