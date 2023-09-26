@@ -390,7 +390,11 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
   :config
   (setq org-hide-emphasis-markers t)
   (setq org-agenda-files '("~/org/Tasks.org"
+			   "~/org/Tests.org"
 			   "~/org/Birthdays.org"))
+  (setq org-startup-folded t)
+  (setq org-startup-indented t)
+  
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
@@ -410,9 +414,16 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
           ("note" . ?n)
           ("idea" . ?i))))
 
+(use-package org-bullets
+  :ensure t
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
 ;;; Exporting org mode files to markdown.
 (require 'ox-md)
-  
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
