@@ -39,7 +39,6 @@ $ nix-shell -p git stow
 
 [nix-shell] $ git clone https://codeberg.org/guemax/dotfiles .dotfiles
 [nix-shell] $ cd .dotfiles/
-[nix-shell] $ # Make the setup script executable
 [nix-shell] $ chmod +x setup.sh
 [nix-shell] $ sudo ./setup.sh
 #+end_src
