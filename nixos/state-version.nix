@@ -22,43 +22,4 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-{ config, ... }:
-
-let
-  stateVersion = import ../state-version.nix;
-in
-{
-  home-manager.users.max = { pkgs, ... }: {
-    home.stateVersion = stateVersion;
-    home.pointerCursor = {
-      gtk.enable = true;
-      x11.enable = true;
-      package = pkgs.phinger-cursors;
-      name = "Phinger Cursors";
-      size = 48;
-    };
-    
-    programs.git = {
-      enable = true;
-      userName = "guemax";
-      userEmail = "code-mg@mailbox.org";
-
-      extraConfig = {
-        init.defaultBranch = "main";
-        commit.gpgsign = true;
-        user.signingkey = "85916548E34D20A0!";
-      };
-    };
-
-    services.gpg-agent = {
-      enable = true;
-      enableBashIntegration = true;
-      defaultCacheTtl = 1800;  # 30 minutes.
-      extraConfig = ''
-        allow-emacs-pinentry
-        allow-loopback-pinentry
-      '';
-      pinentryFlavor = "curses";  # Pinentry TUI.
-    };
-  };
-}
+"23.05"

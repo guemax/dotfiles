@@ -24,6 +24,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 { config, pkgs, lib, ... }:
 
+let
+  stateVersion = import ./state-version.nix;
+in
 {
   imports = [
     # Hardware configuration.
@@ -65,5 +68,5 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   ###################
   ## State Version ##
   ###################
-  system.stateVersion = "23.05";
+  system.stateVersion = stateVersion;
 }
