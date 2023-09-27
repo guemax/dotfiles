@@ -38,9 +38,9 @@ import XMonad.Layout.Spacing
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
-
 
 ----------------------------------------------------------------------
 --                                                                  --
@@ -159,6 +159,7 @@ myStartupHook = do
   spawnOnOnce "2: emacs" "emacs"
   spawnOnOnce "3: term"  "alacritty"
   spawnOnOnce "6: pass"  "keepassxc"
+  setWMName "LG3D"
 
 
 ----------------------------------------------------------------------
