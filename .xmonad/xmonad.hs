@@ -70,7 +70,7 @@ myWorkspaces = [ "1: www"
 ----------------------------------------------------------------------
 
 myBorderWidth = 5
-myNormalBorderColor = "#96a6c8"
+myNormalBorderColor = "#9e95c7"
 myFocusedBorderColor = "#ffdd33"
 
 
