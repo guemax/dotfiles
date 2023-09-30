@@ -46,6 +46,7 @@ in
     ./services/pipewire.nix
     ./services/printing.nix
     ./services/emacs.nix
+    ./services/picom.nix
     # Programs.
     ./programs/ssh.nix
     # Home Manager.
