@@ -70,7 +70,7 @@ myWorkspaces = [ "1: www"
 ----------------------------------------------------------------------
 
 myBorderWidth = 5
-myNormalBorderColor = "#9e95c7"
+myNormalBorderColor = "#95a99f"
 myFocusedBorderColor = "#ffdd33"
 
 
@@ -159,6 +159,7 @@ myStartupHook = do
   spawnOnOnce "3: term"  "alacritty"
   spawnOnOnce "6: pass"  "keepassxc"
   setWMName "LG3D"
+  spawnOnce "feh --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png"
 
 
 ----------------------------------------------------------------------

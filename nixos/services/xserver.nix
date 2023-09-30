@@ -38,7 +38,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       config = builtins.readFile /home/max/.xmonad/xmonad.hs;
     };
 
-    displayManager.defaultSession = "none+xmonad";
+    displayManager = {
+      defaultSession = "none+xmonad";
+      sessionCommands = ''
+                          feh --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
+                          xmonad &
+                        '';
+    };
     libinput.enable = true;
   };
   
