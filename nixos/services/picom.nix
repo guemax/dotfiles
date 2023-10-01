@@ -30,14 +30,18 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     backend = "glx";
 
     fade = true;
-    fadeDelta = 1;
     fadeSteps = [
-      1
-      1
+      0.25
+      0.25
     ];
+    fadeDelta = 10;
     
     shadow = true;
-    shadowOpacity = 0.5;
+    shadowOpacity = 0.3;
+    shadowOffsets = [
+      (-10)
+      (-10)
+    ];
     shadowExclude = [
       "class_i = 'polybar'"
     ];
@@ -47,21 +51,20 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         method = "dual_kawase";
         strength = 5;
       };
-      corner-radius = 12.0;
+      corner-radius = 12.5;
       round-borders = 3;
       rounded-corners-exclude = [
         "class_i = 'polybar'"
+        "class_i = 'emacs'"
+        "class_i = 'firefox'"
+        "class_i = 'vlc'"
+        "class_i = 'keepassxc'"
       ];
     };
 
-    inactiveOpacity = 0.8;
     opacityRules = [
-      "100:name *= 'rofi'"
-      "100:name *= 'KeePassXC'"
-      "100:name *= 'Firefox'"
-      "100:name *= 'VLC'"
-      "90:name *= 'polybar'"
-      "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+      "80:class_i *= 'alacritty' && !focused"
+      "80:class_i = 'rofi'"
     ];
   };
 }
