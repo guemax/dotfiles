@@ -58,8 +58,8 @@
   :config
   (load-theme 'gruber-darker t))
 
-(set-frame-parameter (selected-frame) 'alpha '(90 . 80))
-(add-to-list 'default-frame-alist '(alpha . (90 . 80)))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
 
 (if (member "Iosevka" (font-family-list))
     (progn
