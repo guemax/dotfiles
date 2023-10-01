@@ -52,15 +52,15 @@ import XMonad.Hooks.StatusBar.PP
 myModMask = mod4Mask -- Use Super instead of Alt.
 myTerminal = "alacritty"
 
-myWorkspaces = [ "1: www"
-               , "2: emacs"
-               , "3: term"
-               , "4: docs"
-               , "5: man"
-               , "6: pass"
-               , "7: vid"
-               , "8: mus"
-               , "9: else"
+myWorkspaces = [ "www"
+               , "emacs"
+               , "term"
+               , "docs"
+               , "man"
+               , "pass"
+               , "vid"
+               , "mus"
+               , "else"
                ]
 
 
@@ -125,10 +125,10 @@ myAdditionalKeysP =
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnOnce "1: www"   "firefox"
-  spawnOnOnce "2: emacs" "emacs"
-  spawnOnOnce "3: term"  "alacritty"
-  spawnOnOnce "6: pass"  "keepassxc"
+  spawnOnOnce "www"   "firefox"
+  spawnOnOnce "emacs" "emacs"
+  spawnOnOnce "term"  "alacritty"
+  spawnOnOnce "pass"  "keepassxc"
   setWMName "LG3D"
   spawnOnce "feh --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png"
 
