@@ -48,6 +48,11 @@ echo "done."
 
 printf "Applying X defaults... "
 xrdb -merge ~/.Xdefaults
+echo "done."
+
+printf "Permanently enabling Redshift... "
+touch ~/.config/systemd/user/default.target.wants/redshift.service
+echo "done."
 
 printf "Building NixOS... "
 nixos-rebuild switch
