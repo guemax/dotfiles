@@ -22,49 +22,45 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-{ pkgs, config, ... }:
+{ config, ... }:
 
+let
+  stateVersion = import ./state-version.nix;
+in
 {
-  services.picom = {
-    enable = true;
-    backend = "glx";
+  home-manager.users.max = { pkgs, ... }: {
+    home.stateVersion = stateVersion;
+    home.pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.phinger-cursors;
+      name = "Phinger Cursors";
+      size = 48;
+    };
+    
+    programs.git = {
+      enable = true;
+      userName = "guemax";
+      userEmail = "code-mg@mailbox.org";
 
-    fade = true;
-    fadeSteps = [
-      0.25
-      0.25
-    ];
-    fadeDelta = 10;
-    
-    shadow = true;
-    shadowOpacity = 0.3;
-    shadowOffsets = [
-      (-10)
-      (-10)
-    ];
-    shadowExclude = [
-      "class_i = 'polybar'"
-    ];
-    
-    settings = {
-      blur = {
-        method = "dual_kawase";
-        strength = 5;
+      extraConfig = {
+        init.defaultBranch = "main";
+        commit.gpgsign = true;
+        user.signingkey = "85916548E34D20A0!";
       };
-      corner-radius = 12.5;
-      round-borders = 3;
-      rounded-corners-exclude = [
-        "class_i = 'polybar'"
-        "class_i = 'emacs'"
-        "class_i = 'firefox'"
-        "class_i = 'vlc'"
-        "class_i = 'keepassxc'"
-      ];
     };
 
-    opacityRules = [
-      "80:class_i *= 'alacritty' && !focused"
-      "80:class_i = 'rofi'"
-    ];
+    services.gpg-agent = {
+      enable = true;
+      enableBashIntegration = true;
+      defaultCacheTtl = 1800;  # 30 minutes.
+      extraConfig = ''
+        allow-emacs-pinentry
+        allow-loopback-pinentry
+      '';
+      pinentryFlavor = "curses";  # Pinentry TUI.
+    };
   };
+  
+  programs.ssh.startAgent = true;
 }

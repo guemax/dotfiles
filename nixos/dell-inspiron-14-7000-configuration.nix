@@ -32,26 +32,14 @@ in
     # Hardware configuration.
     <nixos-hardware/dell/inspiron/7405>
     ./hardware-configuration.nix
-    # Modules.
-    ./modules/bootloader.nix
-    ./modules/networking.nix
-    ./modules/localisation.nix
-    ./modules/system-packages.nix
-    ./modules/users.nix
-    ./modules/hdpi.nix
-    ./modules/fonts.nix
+    # General configuration.
+    ./general-configuration.nix
+    ./system-packages.nix
     # Services.
-    ./services/xserver.nix
-    ./services/redshift.nix
-    ./services/pipewire.nix
-    ./services/printing.nix
-    ./services/emacs.nix
-    ./services/picom.nix
-    # Programs.
-    ./programs/ssh.nix
-    # Home Manager.
+    ./services.nix
+    # Home manager.
     <home-manager/nixos>
-    ./modules/home.nix
+    ./home-manager.nix
   ];
 
   #####################
