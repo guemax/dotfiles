@@ -25,6 +25,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 configuration {
 	font: "Iosevka 20";
 	terminal: "alacritty";
+	show-icons: true;
+	icon-theme: "Papirus";
 	hover-select: true;
 	kb-secondary-paste: "Control+y,Insert";
 	kb-mode-next: "Super+n,Shift+Right,Control+Tab";
@@ -50,12 +52,14 @@ configuration {
 //////////////////////////////////////////////////////////////////////
 
 window {
-  background-color: #96a6c8;
+  background-color: #ffdd33;
   padding: 5;
+  border-radius: 12.5;
 }
 
 mainbox {
   background-color: #282828;
+  border-radius: 12.5;
 }
 
 
@@ -107,10 +111,10 @@ element normal.active, element alternate.active {
 // Styling for selected elements.
 element selected.normal {
 	color: #282828;
-	background-color: #96a6c8;
+	background-color: #ffdd33;
 }
 
 element selected.active {
-	color: #282828;
-	background-color: #ffdd33;
+	color: #e4e4ef;
+	background-color: #ffffdd33;
 }

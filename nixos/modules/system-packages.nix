@@ -35,6 +35,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ###################
     ## OS utilities. ##
     ###################
+    papirus-icon-theme
     phinger-cursors
     lxappearance
     thunderbird
