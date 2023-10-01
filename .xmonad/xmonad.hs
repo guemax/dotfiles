@@ -83,7 +83,7 @@ myFocusedBorderColor = "#ffdd33"
 ----------------------------------------------------------------------
 
 myLayoutHook = avoidStruts
-               $ spacingWithEdge 10
+               $ smartSpacingWithEdge 10
                $ smartBorders
                $ layoutTall
                ||| layoutMirror
