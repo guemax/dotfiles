@@ -35,6 +35,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 
 -- Hooks.
+import XMonad.Hooks.DynamicIcons
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
@@ -70,7 +71,7 @@ myWorkspaces = [ "1: www"
 ----------------------------------------------------------------------
 
 myBorderWidth = 5
-myNormalBorderColor = "#95a99f"
+myNormalBorderColor = "#96a6c8"
 myFocusedBorderColor = "#ffdd33"
 
 
@@ -82,6 +83,7 @@ myFocusedBorderColor = "#ffdd33"
 
 myLayoutHook = avoidStruts
                $ spacingWithEdge 10
+               $ smartBorders
                $ layoutTall
                ||| layoutMirror
                ||| layoutFull
@@ -99,7 +101,7 @@ myLayoutHook = avoidStruts
 
 myAdditionalKeysP =
   [ -- Miscellaneous
-    ("M-q", spawn "pkill xmobar; xmonad --restart")
+    ("M-q", spawn "pkill polybar; xmonad --restart")
   , ("M-f", spawn "firefox")
   , ("M-w", spawn "rofi -show window")
   , ("M-p", spawn "rofi -show drun")
@@ -140,7 +142,7 @@ myStartupHook = do
 main = xmonad
        . ewmhFullscreen
        . ewmh
-       . withEasySB (statusBarProp "xmobar" (clickablePP xmobarPP)) defToggleStrutsKey
+       . withEasySB (statusBarProp "polybar -c ~/.dotfiles/.config/polybar/config.ini" (pure xmobarPP)) defToggleStrutsKey
        $ docks
        $ def
        { modMask = myModMask
