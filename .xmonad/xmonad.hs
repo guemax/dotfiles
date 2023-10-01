@@ -117,37 +117,6 @@ myAdditionalKeysP =
 
 ----------------------------------------------------------------------
 --                                                                  --
---                          --- Xmobar ---                          --
---                                                                  --
-----------------------------------------------------------------------
-
-myXmobarPP :: PP
-myXmobarPP = def
-    { ppSep             = lowWhite " "
-    , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = yellow . wrap " " "" . xmobarBorder "Bottom" "#ffdd33" 3
-    , ppHidden          = blue . wrap " " ""
-    , ppHiddenNoWindows = shorten' "" 0   -- Do not display these ws.
-    , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-    , ppOrder           = \[ws, _, _, wins] -> [ws, wins]
-    , ppExtras          = [logTitles formatFocused formatUnfocused]
-    }
-  where
-    formatFocused   = yellow . wrap " [" "]" . ppWindow
-    formatUnfocused = blue   . wrap " [" "]" . ppWindow
-
-    ppWindow :: String -> String
-    ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
-
-    blue, lowWhite, red, yellow :: String -> String
-    blue     = xmobarColor "#96a6c8" ""
-    yellow   = xmobarColor "#ffdd33" ""
-    red      = xmobarColor "#f43841" ""
-    lowWhite = xmobarColor "#52494e" ""
-
-
-----------------------------------------------------------------------
---                                                                  --
 --                       --- Startup Hook ---                       --
 --                                                                  --
 ----------------------------------------------------------------------
@@ -171,7 +140,7 @@ myStartupHook = do
 main = xmonad
        . ewmhFullscreen
        . ewmh
-       . withEasySB (statusBarProp "xmobar" (clickablePP myXmobarPP)) defToggleStrutsKey
+       . withEasySB (statusBarProp "xmobar" (clickablePP xmobarPP)) defToggleStrutsKey
        $ docks
        $ def
        { modMask = myModMask
