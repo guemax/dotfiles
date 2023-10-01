@@ -42,6 +42,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       defaultSession = "none+xmonad";
       sessionCommands = ''
                           feh --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
+                          polybar
                           xmonad &
                         '';
     };

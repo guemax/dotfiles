@@ -38,6 +38,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
     shadow = true;
     shadowOpacity = 0.5;
+    shadowExclude = [
+      "class_i = 'polybar'"
+    ];
     
     settings = {
       blur = {
@@ -47,7 +50,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       corner-radius = 12.0;
       round-borders = 3;
       rounded-corners-exclude = [
-        "class_i = 'xmobar'"
+        "class_i = 'polybar'"
       ];
     };
 
@@ -57,6 +60,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       "100:name *= 'KeePassXC'"
       "100:name *= 'Firefox'"
       "100:name *= 'VLC'"
+      "90:name *= 'polybar'"
       "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
     ];
   };
