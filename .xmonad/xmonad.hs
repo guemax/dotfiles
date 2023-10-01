@@ -43,6 +43,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
+
 ----------------------------------------------------------------------
 --                                                                  --
 --                      --- Miscellaneous ---                       --
@@ -105,7 +106,7 @@ myAdditionalKeysP =
   , ("M-f", spawn "firefox")
   , ("M-w", spawn "rofi -show window")
   , ("M-p", spawn "rofi -show drun")
-  , ("M-l", spawn "rofi -show run")
+  , ("M-o", spawn "rofi -show run")
   , ("M-e", spawn "emacs")
     -- Audio
   , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+")
