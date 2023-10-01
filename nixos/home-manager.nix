@@ -63,4 +63,9 @@ in
   };
   
   programs.ssh.startAgent = true;
+  
+  programs.bash.shellAliases = {
+    emacsclient = ''emacsclient -c -n -a "" -F "((font . \"Iosevka Nerd Font-13\"))"'';
+    ssh = "env TERM=xterm-256color ssh";
+  };
 }
