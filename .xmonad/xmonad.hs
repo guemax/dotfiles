@@ -131,7 +131,6 @@ myStartupHook = do
   spawnOnOnce "term"  "alacritty"
   spawnOnOnce "pass"  "keepassxc"
   setWMName "LG3D"
-  spawnOnce "feh --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png"
 
 
 ----------------------------------------------------------------------

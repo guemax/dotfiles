@@ -60,7 +60,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
-                          feh --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
+                          feh --no-fehbg --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
                         '';
     };
     libinput.enable = true;
