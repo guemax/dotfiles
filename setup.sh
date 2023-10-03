@@ -28,6 +28,15 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
+printf "Creating backup of /etc/nixos/configuration.nix... "
+if [[ -f /etc/nixos/configuration.nix.bak ]]
+then
+    # Has already been done.
+else
+    mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+fi
+echo "done."
+
 echo "Setting up NixOS system:"
 
 printf "Adding required nix channels... "
@@ -39,7 +48,7 @@ nix-channel --update
 echo "done."
 
 printf "Creating symlinks... "
-ln -s ./nixos/dell-inspiron-14-7000-configuration.nix /etc/nixos/
+ln -s ~/.dotfiles/nixos/dell-inspiron-14-7000-configuration.nix /etc/nixos/configuration.nix
 echo "done."
 
 printf "Stowing config files... "
@@ -50,12 +59,12 @@ printf "Applying X defaults... "
 xrdb -merge ~/.Xdefaults
 echo "done."
 
-printf "Permanently enabling Redshift... "
-touch ~/.config/systemd/user/default.target.wants/redshift.service
-echo "done."
-
 printf "Building NixOS... "
 nixos-rebuild switch
+echo "done."
+
+printf "Permanently enabling Redshift... "
+touch ~/.config/systemd/user/default.target.wants/redshift.service
 echo "done."
 
 echo "Wonderful, you are now all set. Have fun with your system!"
