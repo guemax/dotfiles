@@ -32,6 +32,7 @@ import XMonad.Util.Loggers
 import XMonad.Util.SpawnOnce
 
 -- Layout.
+import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 
@@ -87,10 +88,12 @@ myLayoutHook = avoidStruts
                $ smartSpacingWithEdge 10
                $ smartBorders
                $ layoutTall
+               ||| layoutGrid
                ||| layoutMirror
                ||| layoutFull
   where
     layoutTall = Tall 1 (3/100) (1/2)
+    layoutGrid = Grid
     layoutMirror = Mirror (Tall 1 (3/100) (3/5))
     layoutFull = Full
 
