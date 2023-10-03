@@ -42,12 +42,13 @@ Clone this repo using git:
   [nix-shell] $ cd .dotfiles/
 #+end_src
 
-You should now go ahead and look through the files ~home-manager.nix~
-and ~general-configuration.nix~ to adjust settings as needed
-(e.g. users, git config, etc.) and copy your LUKS encryption settings
-(from ~/etc/nixos/configuration.nix~) to
+You should now go ahead and look through the files
+~nixos/home-manager.nix~ and ~nixos/general-configuration.nix~ to adjust
+settings as needed (e.g. users, git config, etc.) and copy your LUKS
+encryption settings (from ~/etc/nixos/configuration.nix~) to
 ~dell-inspiron-14-7000-configuration.nix~ (or delete them from the
-latter).
+latter).  Make sure to replace the absolute path for the XMonad
+configuration in ~nixos/services.nix~ as well!
 
 The rest of the setup is pretty much straightforward, as I have
 automated it almost completely:
