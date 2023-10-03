@@ -37,6 +37,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ###################
     papirus-icon-theme
     phinger-cursors
+    pinentry-emacs
     lxappearance
     thunderbird
     libreoffice

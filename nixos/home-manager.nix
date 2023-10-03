@@ -58,7 +58,7 @@ in
         allow-emacs-pinentry
         allow-loopback-pinentry
       '';
-      pinentryFlavor = "curses";  # Pinentry TUI.
+      pinentryFlavor = "emacs";  # Pinentry TUI.
     };
   };
   
