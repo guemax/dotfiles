@@ -23,6 +23,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -}
 
 import XMonad
+import XMonad.ManageHook
 
 -- Util.
 import XMonad.Util.ClickableWorkspaces
@@ -135,6 +136,22 @@ myStartupHook = do
 
 ----------------------------------------------------------------------
 --                                                                  --
+--                       --- Manage Hook ---                        --
+--                                                                  --
+----------------------------------------------------------------------
+
+myManageHook :: ManageHook
+myManageHook = composeAll
+  [ className =? "gimp-2.10"   --> doFloat
+  , className =? "Inkscape"    --> doFloat
+  , className =? "Anki"        --> doFloat
+  , className =? "firefox"     --> doFloat
+  , className =? "Tor Browser" --> doFloat
+  ]
+
+
+----------------------------------------------------------------------
+--                                                                  --
 --                      --- Main Function ---                       --
 --                                                                  --
 ----------------------------------------------------------------------
@@ -152,7 +169,7 @@ main = xmonad
        , normalBorderColor  = myNormalBorderColor
        , focusedBorderColor = myFocusedBorderColor
        , layoutHook = myLayoutHook
-       , manageHook = manageSpawn <+> manageHook def
+       , manageHook = manageSpawn <+> myManageHook
        , startupHook = myStartupHook
        }
        `additionalKeysP` myAdditionalKeysP
