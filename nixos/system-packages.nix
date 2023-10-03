@@ -95,6 +95,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ## Programming languages. ##
     ############################
     texlive.combined.scheme-full
+    platformio
     python311
     rustfmt
     rustc
