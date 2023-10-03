@@ -148,8 +148,6 @@ myManageHook = composeAll
   [ className =? "gimp-2.10"   --> doFloat
   , className =? "Inkscape"    --> doFloat
   , className =? "Anki"        --> doFloat
-  , className =? "firefox"     --> doFloat
-  , className =? "Tor Browser" --> doFloat
   ]
 
 
