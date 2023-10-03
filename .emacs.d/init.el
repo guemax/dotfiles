@@ -107,7 +107,8 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 (setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file) (load custom-file))
 
-(setq default-directory "~/Documents")
+(when (file-directory-p "~/Documents")
+    (setq default-directory "~/Documents"))
 
 (setq debug-on-error t)
 (setq visible-bell t)
