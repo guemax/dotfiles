@@ -32,17 +32,29 @@ files.
 
 * Setup
 
-Setting up my dotfiles is pretty much straightforward, as I have
+Clone this repo using git:
+
+#+begin_src shell
+  $ # Create a nix-shell with git and stow available.
+  $ nix-shell -p git stow
+
+  [nix-shell] $ git clone https://codeberg.org/guemax/dotfiles .dotfiles
+  [nix-shell] $ cd .dotfiles/
+#+end_src
+
+You should now go ahead and look through the files ~home-manager.nix~
+and ~general-configuration.nix~ to adjust settings as needed
+(e.g. users, git config, etc.) and copy your LUKS encryption settings
+(from ~/etc/nixos/configuration.nix~) to
+~dell-inspiron-14-7000-configuration.nix~ (or delete them from the
+latter).
+
+The rest of the setup is pretty much straightforward, as I have
 automated it almost completely:
 
 #+begin_src shell
-$ # Create a nix-shell with git and stow available.
-$ nix-shell -p git stow
-
-[nix-shell] $ git clone https://codeberg.org/guemax/dotfiles .dotfiles
-[nix-shell] $ cd .dotfiles/
-[nix-shell] $ chmod +x setup.sh
-[nix-shell] $ sudo ./setup.sh
+  [nix-shell] $ chmod +x setup.sh
+  [nix-shell] $ sudo ./setup.sh
 #+end_src
 
 That's it, have fun with your system!
