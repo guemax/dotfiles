@@ -26,11 +26,62 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 {
   environment.systemPackages = with pkgs; [
-    ##############
-    ## Browser. ##
-    ##############
+    ########################
+    ## Images and Videos. ##
+    ########################
+    obs-studio
+    flameshot  # Screenshot software.
+    darktable
+    inkscape
+    mypaint
+    nomacs  # Basic image manipulation.
+    gimp
+    feh
+    vlc
+
+    ############
+    ## Games. ##
+    ############
+    superTuxKart
+    superTux
+    minetest
+    
+    ####################
+    ## Miscellaneous. ##
+    ####################
     tor-browser-bundle-bin
+    libreoffice
+    thunderbird
+    borgbackup
+    keepassxc
+    localsend  # Open Source alternative to Air Drop.
+    musescore
     firefox
+    mupdf
+    anki
+    mons  # Managing multiple monitors.
+    mc  # Midnight Commander: Text based file manager for Unix.
+    
+    ##################
+    ## Programming. ##
+    ##################
+    texlive.combined.scheme-full
+    platformio
+    alacritty
+    python311
+    neofetch
+    cmatrix
+    rustfmt
+    cowsay
+    lolcat
+    rustc
+    cargo
+    tokei
+    stow
+    gcc
+    git
+    tea  # Official Gitea CLI.
+    gh
 
     ###################
     ## OS utilities. ##
@@ -38,95 +89,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     papirus-icon-theme
     phinger-cursors
     pinentry-emacs
-    lxappearance
-    thunderbird
-    libreoffice
-    borgbackup
-    localsend  # Open Source alternative to Air Drop.
-    musescore
-    polybar
-    mupdf
-    anki
-    mons  # Managing multiple monitors.
-    vlc
-    mc  # Midnight Commander: Text based file manager for Unix.
-
-    ##################################
-    ## Secret management utilities. ##
-    ##################################
-    keepassxc
-    gnupg
-
-    ##############################
-    ## XMonad/Xmobar utilities. ##
-    ##############################
-    xdotool  # For having clickable workspaces in Xmobar.
-    xmobar
-    rofi
-    
-    #########################
-    ## SysAdmin utilities. ##
-    #########################
     brightnessctl
+    lxappearance
     inetutils
     xorg.xev  # Print contents of X events.
+    polybar
+    xdotool  # For having clickable workspaces in Xmobar.
+    xmobar
+    gnupg
+    rofi
     htop
-
-    ####################
-    ## Image viewers. ##
-    ####################
-    nomacs  # With basic image manipulation.
-    feh
-
-    ####################
-    ## Image editors. ##
-    ####################
-    darktable
-    inkscape
-    mypaint
-    gimp
-
-    ################################
-    ## Screen recording software. ##
-    ################################
-    obs-studio
-    flameshot  # Screenshot software.
-
-    ############################
-    ## Programming languages. ##
-    ############################
-    texlive.combined.scheme-full
-    platformio
-    python311
-    rustfmt
-    rustc
-    cargo
-    gcc
-
-    ##########################
-    ## Terminal and editor. ##
-    ##########################
-    alacritty
-
-    ######################
-    ## Version control. ##
-    ######################
-    git
-    tea  # Official Gitea CLI.
-    gh
-
-    ##################################
-    ## Other programming utilities. ##
-    ##################################
-    tokei
-    stow
-    
-    ###################
-    ## H4ck3r stuff. ##
-    ###################
-    neofetch
-    cmatrix
-    cowsay
-    lolcat
   ];
 }
