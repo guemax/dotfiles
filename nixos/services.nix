@@ -77,6 +77,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                           feh --no-fehbg --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
                         '';
     };
+
+    excludePackages = with pkgs; [
+      xterm
+    ];
+    
     libinput.enable = true;
   };
   
