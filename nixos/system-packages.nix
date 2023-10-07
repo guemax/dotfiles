@@ -43,6 +43,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     libreoffice
     borgbackup
     localsend  # Open Source alternative to Air Drop.
+    musescore
     polybar
     mupdf
     anki
@@ -106,7 +107,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ## Terminal and editor. ##
     ##########################
     alacritty
-    emacs
 
     ######################
     ## Version control. ##
