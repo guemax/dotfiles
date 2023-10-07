@@ -74,8 +74,12 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
-                          feh --no-fehbg --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
-                        '';
+        feh --no-fehbg --bg-scale ~/.dotfiles/wallpapers/gruber-darker-theme-brown-green.png
+				xset -dpms
+				xset s blank
+				xset s 300 # seconds
+				${pkgs.lightlocker}/bin/light-locker --idle-hint &
+      '';
     };
 
     excludePackages = with pkgs; [
@@ -84,7 +88,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
     libinput.enable = true;
   };
-  
+
+  systemd.targets.hybrid-sleep.enable = true;
+  services.logind.extraConfig = ''
+		IdleAction=hybrid-sleep
+		IdleActionSec=20s
+  '';
+
   console.keyMap = "de";
   
 
