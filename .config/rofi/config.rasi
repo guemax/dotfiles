@@ -62,6 +62,15 @@ mainbox {
   border-radius: 12.5;
 }
 
+message {
+  padding: 15;
+}
+
+textbox {
+  padding: 5;
+  color: #ffdd33;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 //                                                                  //
