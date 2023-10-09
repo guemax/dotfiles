@@ -105,20 +105,21 @@ myLayoutHook = avoidStruts
 ----------------------------------------------------------------------
 
 myAdditionalKeysP =
-  [ -- Miscellaneous
+  [ -- Miscellaneous.
     ("M-q", spawn "pkill polybar; xmonad --restart")
   , ("M-f", spawn "firefox")
+  , ("M-e", spawn "emacs")
+  -- Rofi.
   , ("M-w", spawn "rofi -show window")
   , ("M-p", spawn "rofi -show drun")
   , ("M-o", spawn "rofi -show run")
   , ("M-i", spawn "rofi -show calc -modi emoji calc")
   , ("M-s", spawn "rofi -show power-menu -modi power-menu:rofi-power-menu")
-  , ("M-e", spawn "emacs")
-    -- Audio
+    -- Audio.
   , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+")
   , ("<XF86AudioLowerVolume>",  spawn "amixer set Master 5%-")
   , ("<XF86AudioMute>",         spawn "amixer set Master toggle")
-    -- Monitor Brightness
+    -- Monitor Brightness.
   , ("<XF86MonBrightnessUp>",   spawn "brightnessctl set +10%")
   , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%-")
   ]
