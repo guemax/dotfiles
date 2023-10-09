@@ -111,6 +111,8 @@ myAdditionalKeysP =
   , ("M-w", spawn "rofi -show window")
   , ("M-p", spawn "rofi -show drun")
   , ("M-o", spawn "rofi -show run")
+  , ("M-i", spawn "rofi -show calc -modi emoji calc")
+  , ("M-s", spawn "rofi -show power-menu -modi power-menu:rofi-power-menu")
   , ("M-e", spawn "emacs")
     -- Audio
   , ("<XF86AudioRaiseVolume>",  spawn "amixer set Master 5%+")

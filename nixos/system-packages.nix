@@ -98,7 +98,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     xdotool  # For having clickable workspaces in Xmobar.
     xmobar
     gnupg
-    rofi
     htop
+    rofi-power-menu
+    (rofi.override {
+      plugins = [
+        rofi-calc
+        rofi-emoji
+      ];
+    })
   ];
 }
