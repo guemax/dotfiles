@@ -28,7 +28,7 @@
 Dotfiles---A place for combining all my GNU/Linux configuration
 files.
 
-[[./resources/screenshot-2.png]]
+[[./resources/screenshot-3.png]]
 
 * Setup
 
