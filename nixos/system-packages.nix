@@ -59,6 +59,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     localsend  # Open Source alternative to Air Drop.
     musescore
     sonic-pi
+    zathura
     firefox
     mupdf
     anki
