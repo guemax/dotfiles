@@ -133,10 +133,10 @@ myAdditionalKeysP =
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnOnce "www"   "firefox"
-  spawnOnOnce "emacs" "emacs"
-  spawnOnOnce "term"  "alacritty"
-  spawnOnOnce "pass"  "keepassxc"
+  spawnOnOnce "I"   "firefox"
+  spawnOnOnce "II" "emacs"
+  spawnOnOnce "III"  "alacritty"
+  spawnOnOnce "VI"  "keepassxc"
   setWMName "LG3D"
 
 
