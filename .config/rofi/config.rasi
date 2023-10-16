@@ -67,6 +67,7 @@ configuration {
 
 window {
     background-color: @gd-foreground;
+    padding: 3;
 }
 
 mainbox {

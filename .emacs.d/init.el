@@ -55,6 +55,12 @@
 (use-package modus-themes
   :ensure t
   :config
+  (setq modus-themes-common-palette-overrides
+	'((fringe unspecified)
+	  (border-mode-line-active bg-mode-line-active)
+          (border-mode-line-inactive bg-mode-line-inactive)
+	  (bg-mode-line-active bg-active)
+          (fg-mode-line-active fg-main)))
   (load-theme 'modus-vivendi t))
 
 (if (member "Iosevka" (font-family-list))
@@ -64,6 +70,8 @@
   (progn
     (set-face-attribute 'default nil :height 120)))
 
+(set-frame-parameter (selected-frame) 'alpha '(85 . 85))
+(add-to-list 'default-frame-alist '(alpha . (85 . 85)))
 
 ;;; Hightlight matching parenthesis.
 (use-package rainbow-delimiters

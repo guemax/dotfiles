@@ -34,7 +34,7 @@ window:
     x: 5  # px.
     y: 5  # px.
 
-  opacity: 1
+  opacity: 0.85
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true

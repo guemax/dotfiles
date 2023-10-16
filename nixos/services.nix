@@ -123,6 +123,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         method = "dual_kawase";
         strength = 5;
       };
+      opacityRules = [
+        "85:class_i = 'rofi'"
+      ];
     };
   };
 
