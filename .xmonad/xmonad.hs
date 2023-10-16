@@ -148,9 +148,9 @@ myStartupHook = do
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-  [ className =? "gimp-2.10"   --> doFloat
-  , className =? "Inkscape"    --> doFloat
-  , className =? "Anki"        --> doFloat
+  [ className =? "gimp-2.10" --> doFloat
+  , className =? "Inkscape"  --> doFloat
+  , className =? "Anki"      --> doFloat
   ]
 
 
