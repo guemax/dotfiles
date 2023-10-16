@@ -28,7 +28,7 @@ configuration {
 	terminal: "alacritty";
 	show-icons: true;
 	icon-theme: "Papirus";
-	hover-select: true;
+	hover-select: false;
 	kb-secondary-paste: "Control+y,Insert";
 	kb-mode-next: "Super+n,Shift+Right,Control+Tab";
 	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
