@@ -123,15 +123,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         method = "dual_kawase";
         strength = 5;
       };
-      corner-radius = 12.5;
-      round-borders = 3;
-      rounded-corners-exclude = [
-        "class_i = 'polybar'"
-        "class_i = 'emacs'"
-        "class_i = 'firefox'"
-        "class_i = 'vlc'"
-        "class_i = 'keepassxc'"
-      ];
     };
 
     opacityRules = [
