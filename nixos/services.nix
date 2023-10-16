@@ -148,10 +148,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     pulse.enable = true;
     jack.enable = true;
   };
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem
-    (lib.getName pkg) [
-      "epson-inkjet-printer-workforce-840-series"
-    ];
   
   
   ######################################################################
@@ -160,6 +156,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   ###                                                                ###
   ######################################################################
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem
+    (lib.getName pkg) [
+      "epson-inkjet-printer-workforce-840-series"
+    ];
+  
   services.printing = {
     enable = true;
     drivers = with pkgs; [
