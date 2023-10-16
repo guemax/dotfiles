@@ -1,3 +1,4 @@
+/*-*- mode: css; -*-*/
 /* MIT License
 
 Copyright (c) 2023 guemax
@@ -47,83 +48,101 @@ configuration {
 
 //////////////////////////////////////////////////////////////////////
 //                                                                  //
-//                         --- Theming ---                          //
+//                      --- Global Colors ---                       //
+//                                                                  //
+//////////////////////////////////////////////////////////////////////
+
+* {
+    gd-background: #101010;
+    gd-background-alt: #453d41;
+    gd-foreground: #ffffff;
+    gd-primary: #ffdd33;
+    gd-secondary: #73c936;
+    gd-alert: #f43841;
+    gd-disabled: #565f73;
+}
+
+
+//////////////////////////////////////////////////////////////////////
+//                                                                  //
+//                          --- Window ---                          //
 //                                                                  //
 //////////////////////////////////////////////////////////////////////
 
 window {
-  background-color: #ffdd33;
-  padding: 5;
-  border-radius: 12.5;
+    background-color: @gd-foreground;
 }
 
 mainbox {
-  background-color: #282828;
-  border-radius: 12.5;
-}
-
-message {
-  padding: 15;
-}
-
-textbox {
-  padding: 5;
-  color: #ffdd33;
+    background-color: @gd-background;
 }
 
 
 //////////////////////////////////////////////////////////////////////
 //                                                                  //
-//                     --- Inputbar styling ---                     //
+//                         --- Inputbar ---                         //
 //                                                                  //
 //////////////////////////////////////////////////////////////////////
 
 inputbar {
-  padding: 25 20;
+    padding: 25;
 }
 
 inputbar, prompt {
-  color: #ffdd33;
+    color: @gd-foreground;
 }
 
-entry {
-  color: #96a6c8;
+entry, num-rows, num-filtered-rows {
+    color: @gd-disabled;
+    placeholder-color: @gd-disabled;
+}
+
+message {
+    border: none;
+}
+
+textbox {
+    padding: 10 25;
+    color: @gd-foreground;
 }
 
 
 //////////////////////////////////////////////////////////////////////
 //                                                                  //
-//                     --- Listview Styling ---                     //
+//                         --- Listview ---                         //
 //                                                                  //
 //////////////////////////////////////////////////////////////////////
 
 listview {
-	background-color: #282828;
-	scrollbar: false;
+    background-color: @gd-background;
+    scrollbar: false;
+    border: none;
 }
 
 element {
-	padding: 10 20;
+    padding: 15;
 }
 
-// Styling for normal (and alternate) elements.
+element-icon, element-text {
+    padding: 0 0 0 10;
+}
+
 element normal.normal, element alternate.normal {
-	color: #96a6c8;
-	background-color: #282828;
+    background-color: @gd-background;
+    color: @gd-disabled;
+}
+
+element selected.normal {
+    background-color: @gd-foreground;
+    color: @gd-background;
 }
 
 element normal.active, element alternate.active {
-	color: #ffdd33;
-	background-color: #282828;
-}
-
-// Styling for selected elements.
-element selected.normal {
-	color: #282828;
-	background-color: #ffdd33;
+    background-color: @gd-background;
+    color: @gd-foreground;
 }
 
 element selected.active {
-	color: #e4e4ef;
-	background-color: #ffffdd33;
+    background-color: @gd-disabled;
+    color: @gd-foreground;
 }
