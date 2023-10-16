@@ -73,8 +73,8 @@ myWorkspaces = [ "I"
 --                                                                  --
 ----------------------------------------------------------------------
 
-myBorderWidth = 3
-myNormalBorderColor = "#101010"
+myBorderWidth = 1
+myNormalBorderColor = "#535353"
 myFocusedBorderColor = "#ffffff"
 
 

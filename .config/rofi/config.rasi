@@ -67,7 +67,7 @@ configuration {
 
 window {
     background-color: @gd-foreground;
-    padding: 3;
+    padding: 1;
 }
 
 mainbox {
@@ -92,6 +92,12 @@ inputbar, prompt {
 entry, num-rows, num-filtered-rows {
     color: @gd-disabled;
     placeholder-color: @gd-disabled;
+}
+
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: @gd-disabled;
 }
 
 message {

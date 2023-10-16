@@ -57,10 +57,11 @@
   :config
   (setq modus-themes-common-palette-overrides
 	'((fringe unspecified)
-	  (border-mode-line-active bg-mode-line-active)
-          (border-mode-line-inactive bg-mode-line-inactive)
-	  (bg-mode-line-active bg-active)
-          (fg-mode-line-active fg-main)))
+	  (border-mode-line-active bg-active)
+          (border-mode-line-inactive bg-inactive)
+	  (bg-mode-line-active bg-main)
+          (fg-mode-line-active fg-main)
+	  (bg-mode-line-inactive bg-main)))
   (load-theme 'modus-vivendi t))
 
 (if (member "Iosevka" (font-family-list))
