@@ -108,13 +108,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     enable = true;
     backend = "glx";
 
-    fade = true;
-    fadeSteps = [
-      0.25
-      0.25
-    ];
-    fadeDelta = 10;
-    
     shadow = true;
     shadowOpacity = 0.3;
     shadowOffsets = [
