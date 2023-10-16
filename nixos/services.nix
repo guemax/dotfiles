@@ -124,11 +124,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         strength = 5;
       };
     };
-
-    opacityRules = [
-      "80:class_i *= 'alacritty' && !focused"
-      "80:class_i = 'rofi'"
-    ];
   };
 
   
