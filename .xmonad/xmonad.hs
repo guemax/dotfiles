@@ -55,15 +55,15 @@ import XMonad.Hooks.StatusBar.PP
 myModMask = mod4Mask -- Use Super instead of Alt.
 myTerminal = "alacritty"
 
-myWorkspaces = [ "www"
-               , "emacs"
-               , "term"
-               , "docs"
-               , "man"
-               , "pass"
-               , "vid"
-               , "mus"
-               , "else"
+myWorkspaces = [ "I"
+               , "II"
+               , "III"
+               , "IV"
+               , "V"
+               , "VI"
+               , "VII"
+               , "VIII"
+               , "IX"
                ]
 
 
