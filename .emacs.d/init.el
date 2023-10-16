@@ -280,6 +280,7 @@ Exempt major modes are defined in `display-line-numbers-exempt-modes'."
 	  "Customization is the corner stone of Emacs."
 	  "Emacs is written in Lisp, which is the only computer language that is beautiful."
 	  "Truth can be only found in one place: the code."))
+  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
   (dashboard-setup-startup-hook))
 
 
