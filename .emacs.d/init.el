@@ -52,14 +52,10 @@
 (tool-bar-mode -1)
 (set-scroll-bar-mode nil)
 
-;;; Gruber darker theme by Alexey Kutepov a.k.a. rexim.
-(use-package gruber-darker-theme
+(use-package modus-themes
   :ensure t
   :config
-  (load-theme 'gruber-darker t))
-
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+  (load-theme 'modus-vivendi t))
 
 (if (member "Iosevka" (font-family-list))
     (progn
@@ -76,26 +72,6 @@
 
 ;;; Display line number and column number in the mode line.
 (column-number-mode)
-
-;;; Display line numbers on the left margin.
-(require 'display-line-numbers)
-
-(defcustom display-line-numbers-exempt-modes
-  '(vterm-mode eshell-mode shell-mode term-mode ansi-term-mode pdf-view-mode)
-  "Major modes on which to disable line numbers."
-  :group 'display-line-numbers
-  :type 'list
-  :version "green")
-
-(defun display-line-numbers--turn-on ()
-  "Turn on line numbers except for certain major modes.
-Exempt major modes are defined in `display-line-numbers-exempt-modes'."
-  (unless (or (minibufferp)
-              (member major-mode display-line-numbers-exempt-modes))
-    (display-line-numbers-mode)))
-
-(global-display-line-numbers-mode)
-(setq display-line-numbers-type 'relative)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
