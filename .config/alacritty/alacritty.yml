@@ -34,7 +34,7 @@ window:
     x: 5  # px.
     y: 5  # px.
 
-  opacity: 0.9
+  opacity: 1
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
@@ -61,36 +61,12 @@ font:
 
 ######################################################################
 ###                                                                ###
-###                         --- Colors ---                         ###
-###                                                                ###
-######################################################################
-
-colors:
-  primary:
-    background: '#282828'
-    foreground: '#e4e4ef'
-    dim_foreground: '#52494e'
-    bright_foreground: '#f5f5f5'
-  normal:
-     black:   '#000000'
-     red:     '#f43841'
-     green:   '#73c936'
-     yellow:  '#ffdd33'
-     blue:    '#565f73'
-     magenta: '#9e95c7'
-     cyan:    '#96a6c8'
-     white:   '#ffffff'
-
-
-######################################################################
-###                                                                ###
 ###                          --- Bell ---                          ###
 ###                                                                ###
 ######################################################################
 
 bell:
   duration: 10  # ms.
-  color: '#e4e4ef'
 
 
 ######################################################################
@@ -105,3 +81,13 @@ cursor:
   
   blink_interval: 500
   blink_timeout: 15
+
+
+######################################################################
+###                                                                ###
+###                        --- Theming ---                         ###
+###                                                                ###
+######################################################################
+
+import:
+  - /home/max/.config/alacritty/modus-vivendi.yaml

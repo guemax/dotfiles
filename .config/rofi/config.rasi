@@ -53,13 +53,9 @@ configuration {
 //////////////////////////////////////////////////////////////////////
 
 * {
-    gd-background: #101010;
-    gd-background-alt: #453d41;
+    gd-background: #000000;
     gd-foreground: #ffffff;
-    gd-primary: #ffdd33;
-    gd-secondary: #73c936;
-    gd-alert: #f43841;
-    gd-disabled: #565f73;
+    gd-disabled: #535353;
 }
 
 
