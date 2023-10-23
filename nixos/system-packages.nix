@@ -58,6 +58,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     keepassxc
     localsend  # Open Source alternative to Air Drop.
     musescore
+    librewolf
     sonic-pi
     zathura
     firefox
