@@ -97,6 +97,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     pinentry-emacs
     brightnessctl
     lxappearance
+    imagemagick
     inetutils
     hunspell
     xorg.xev  # Print contents of X events.
