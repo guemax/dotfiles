@@ -90,12 +90,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ###################
     ## OS utilities. ##
     ###################
+    hunspellDicts.de-de
+    hunspellDicts.en_US
     papirus-icon-theme
     phinger-cursors
     pinentry-emacs
     brightnessctl
     lxappearance
     inetutils
+    hunspell
     xorg.xev  # Print contents of X events.
     polybar
     xdotool  # For having clickable workspaces in Xmobar.
