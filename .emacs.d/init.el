@@ -40,6 +40,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(add-to-list 'load-path "~/.emacs.d/org/")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;                                                                ;;;
