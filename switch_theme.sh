@@ -63,4 +63,4 @@ EOF
     exit 1
 fi
 
-sed -i ~/.config/alacritty/alacritty.yml "s/\/home\/max\/\.config\/alacritty\/.*\.yml/\/home\/max\/\.config\/alacritty\/$1\.yml/"
+sed -i "s/\/home\/max\/\.config\/alacritty\/.*\.yml/\/home\/max\/\.config\/alacritty\/$1\.yml/" ~/.dotfiles/.config/alacritty/alacritty.yml
