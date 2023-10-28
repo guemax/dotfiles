@@ -1,0 +1,56 @@
+# MIT License
+
+# Copyright (c) 2023 guemax
+
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation files
+# (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+# BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# This file has been stolen, pardon, lovingly "copied" from anhsirk0's
+# Alacritty theme: https://github.com/anhsirk0/alacritty-themes.
+# Thank you!
+
+colors:
+  normal:
+    black: '#d7d7d7'
+    blue: '#2544bb'
+    cyan: '#30517f'
+    green: '#315b00'
+    magenta: '#8f0075'
+    red: '#972500'
+    white: '#000000'
+    yellow: '#70480f'
+  cursor:
+    cursor: '#282828'
+    text: '#d7d7d7'
+  bright:
+    black: '#505050'
+    blue: '#0031a9'
+    cyan: '#00538b'
+    green: '#005e00'
+    magenta: '#721045'
+    red: '#a60000'
+    white: '#595959'
+    yellow: '#813e00'
+  primary:
+    background: '#ffffff'
+    foreground: '#000000'
+  selection:
+    background: '#bcbcbc'
+    text: '#000000'

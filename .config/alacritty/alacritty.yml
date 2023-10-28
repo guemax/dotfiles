@@ -90,4 +90,4 @@ cursor:
 ######################################################################
 
 import:
-  - /home/max/.config/alacritty/modus-vivendi.yaml
+  - /home/max/.config/alacritty/modus-vivendi.yml
