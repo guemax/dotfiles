@@ -107,6 +107,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     xmobar
     gnupg
     htop
+    zip
+    unzip
     rofi-power-menu
     (rofi.override {
       plugins = [
