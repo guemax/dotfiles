@@ -129,6 +129,7 @@
 (recentf-mode 1)
 
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 ;;; Display possible keyboard shortcuts for prefix key.
 (use-package which-key
