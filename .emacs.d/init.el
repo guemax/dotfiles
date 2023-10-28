@@ -273,8 +273,8 @@
 			  (agenda . 5)))
   (setq dashboard-center-content t)
   (setq dashboard-banner-logo-title "Welcome, my friend!")
-  (setq dashboard-week-agenda t)
-  (setq dashboard-filter-agenda-entry 'dashboard-no-filter-agenda)
+  (setq dashboard-filter-agenda-entry 'dashboard-filter-agenda-by-todo)
+  (setq dashboard-agenda-sort-strategy '(time-up))
   (setq dashboard-startup-banner 1)
   (setq dashboard-footer-messages
 	'("The one true editor, Emacs!"

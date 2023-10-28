@@ -39,8 +39,8 @@
   :ensure t
   :config
   (setq org-hide-emphasis-markers t)
-  (setq org-agenda-files '("~/org/Tasks.org"
-			   "~/org/Tests.org"
+  (setq org-agenda-files '("~/org/Home.org"
+			   "~/org/School.org"
 			   "~/org/Birthdays.org"))
   (setq org-startup-folded t)
   (setq org-startup-indented t)
@@ -53,7 +53,8 @@
         '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)"
                     "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)"
-                    "|" "COMPLETED(c)" "CANC(c@)")))
+                    "|" "COMPLETED(c)" "CANC(c@)")
+	  (sequence "UPCOMING(u)" "PREPARING(p)" "|" "WRITTEN(w)")))
   (setq org-tag-alist
         '(("@home" . ?H)
           ("@school" . ?S)
