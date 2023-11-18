@@ -54,7 +54,8 @@
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)"
                     "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)"
                     "|" "COMPLETED(c)" "CANC(c@)")
-	  (sequence "UPCOMING(u)" "PREPARING(p)" "|" "WRITTEN(w)")))
+	  (sequence "UPCOMING(u)" "PREPARING(p)" "|" "WRITTEN(w!)")
+	  (sequence "REMEMBER(m)" "|" "PARTICIPATED(p!)")))
   (setq org-tag-alist
         '(("@home" . ?H)
           ("@school" . ?S)

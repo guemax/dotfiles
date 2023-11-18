@@ -62,7 +62,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     sonic-pi
     zathura
     firefox
+    yewtube
     mupdf
+    tmux
+    tree
     anki
     mons  # Managing multiple monitors.
     mc  # Midnight Commander: Text based file manager for Unix.
@@ -71,6 +74,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ## Programming. ##
     ##################
     texlive.combined.scheme-full
+    rust-analyzer
     platformio
     alacritty
     python311
@@ -79,10 +83,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     rustfmt
     cowsay
     lolcat
-    rustc
-    cargo
+    rustup
     tokei
     stow
+    vim
     gcc
     git
     tea  # Official Gitea CLI.
@@ -105,6 +109,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     polybar
     xdotool  # For having clickable workspaces in Xmobar.
     xmobar
+    ffmpeg
     gnupg
     htop
     zip

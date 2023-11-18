@@ -63,4 +63,12 @@ EOF
     exit 1
 fi
 
-sed -i "s/\/home\/max\/\.config\/alacritty\/.*\.yml/\/home\/max\/\.config\/alacritty\/$1\.yml/" ~/.dotfiles/.config/alacritty/alacritty.yml
+# XMONAD_THEME=$(echo $1 | sed "s/^./\U&/;s/-./\U&/" | sed "s/-//")
+
+sed -i "s/\/home\/max\/\.config\/alacritty\/.*\.yml/\/home\/max\/\.config\/alacritty\/$1\.yml/" /home/max/.dotfiles/.config/alacritty/alacritty.yml
+sed -i "s/\.\/.*\.ini/\.\/$1\.ini/" /home/max/.dotfiles/.config/polybar/config.ini
+# sed -i "s/^import Themes\..*$/import Themes\.$XMONAD_THEME/" /home/max/.dotfiles/.xmonad/xmonad.hs
+
+# nixos-rebuild switch
+
+pkill polybar; xmonad --restart

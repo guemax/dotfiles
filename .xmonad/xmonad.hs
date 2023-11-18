@@ -45,6 +45,9 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
 
+-- Theme.
+-- import Themes.ModusOperandi
+
 
 ----------------------------------------------------------------------
 --                                                                  --
@@ -134,8 +137,8 @@ myAdditionalKeysP =
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnOnce "I"   "firefox"
-  spawnOnOnce "II" "emacs"
-  spawnOnOnce "III"  "alacritty"
+  spawnOnOnce "II"  "emacs"
+  spawnOnOnce "III" "alacritty"
   spawnOnOnce "VI"  "keepassxc"
   setWMName "LG3D"
 

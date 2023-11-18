@@ -69,6 +69,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       enable = true;
       enableContribAndExtras = true;
       config = builtins.readFile /home/max/.xmonad/xmonad.hs;
+      ghcArgs = [ "-i:lib" ];
     };
 
     displayManager = {
@@ -124,7 +125,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         strength = 5;
       };
       opacityRules = [
-        "85:class_i = 'rofi'"
+        "80:class_g *= 'alacritty' && !focused"
+        "10:class_i = 'rofi'"
       ];
     };
   };
