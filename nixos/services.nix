@@ -75,7 +75,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
-        feh --no-fehbg --bg-scale ~/.dotfiles/wallpapers/vivendi-triangles.png
+        feh --no-fehbg --bg-scale ~/.dotfiles/wallpapers/live-the-dream.png
 				xset -dpms
 				xset s blank
 				xset s 300 # seconds
