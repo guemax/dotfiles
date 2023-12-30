@@ -55,7 +55,8 @@
                     "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)"
                     "|" "COMPLETED(c)" "CANC(c@)")
 	  (sequence "UPCOMING(u)" "PREPARING(p)" "|" "WRITTEN(w!)")
-	  (sequence "REMEMBER(m)" "|" "PARTICIPATED(p!)")))
+	  (sequence "REMEMBER(m)" "|" "PARTICIPATED(p!)")
+  	  (sequence "BIRTHDAY(bir)" "|" "NOTHING(not)")))
   (setq org-tag-alist
         '(("@home" . ?H)
           ("@school" . ?S)
