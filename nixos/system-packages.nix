@@ -32,7 +32,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     obs-studio
     flameshot  # Screenshot software.
     darktable
-    inkscape
+    (inkscape.overrideAttrs {
+      version = "1.3.0";
+    })
+    dconf
     mypaint
     nomacs  # Basic image manipulation.
     gimp
@@ -74,6 +77,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     ## Programming. ##
     ##################
     texlive.combined.scheme-full
+    cargo-tarpaulin
     rust-analyzer
     platformio
     alacritty
@@ -86,6 +90,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     rustup
     tokei
     stow
+    gdb
     vim
     gcc
     git
@@ -110,7 +115,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     xdotool  # For having clickable workspaces in Xmobar.
     xmobar
     ffmpeg
+    dunst
     gnupg
+    sshfs
     htop
     zip
     unzip
