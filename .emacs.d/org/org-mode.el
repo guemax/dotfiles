@@ -64,7 +64,14 @@
           ("publish" . ?p)
           ("batch" . ?b)
           ("note" . ?n)
-          ("idea" . ?i))))
+          ("idea" . ?i)))
+  (setq org-timer-default-timer 25)
+  (setq org-clock-sound "~/.dotfiles/resources/gong.wav"))
+
+(add-hook 'org-clock-in-hook
+	  (lambda ()
+	    (if (not org-timer-current-timer)
+		(org-timer-set-timer '(16)))))
 
 (use-package org-bullets
   :ensure t
